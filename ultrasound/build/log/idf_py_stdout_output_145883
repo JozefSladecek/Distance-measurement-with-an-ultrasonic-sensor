@@ -1,0 +1,107 @@
+Command: /home/jozef/.espressif/python_env/idf6.1_py3.12_env/bin/python /home/jozef/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/ultrasound.elf /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/bootloader/bootloader.elf -m '/home/jozef/.espressif/python_env/idf6.1_py3.12_env/bin/python' '/home/jozef/esp/esp-idf/tools/idf.py' '-p' '/dev/ttyUSB0'
+entropy source...
+[0;32mI (161) cpu_start: Multicore app[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6376
+load:0x40078000,len:15900
+ho 0 tail 12 room 4
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (29) boot: ESP-IDF v6.1-dev-1169-g0b8e7b0efa 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Dec 12 2025 18:45:48[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (32) boot: chip revision: v1.0[0m
+[0;32mI (35) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (53) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (66) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (79) boot: End of partition table[0m
+[0;32mI (82) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=08c74h ( 35956) map[0m
+[0;32mI (102) esp_image: segment 1: paddr=00018c9c vaddr=3ffb0000 size=025bch (  9660) load[0m
+[0;32mI (106) esp_image: segment 2: paddr=0001b260 vaddr=40080000 size=04db8h ( 19896) load[0m
+[0;32mI (115) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=0c31ch ( 49948) map[0m
+[0;32mI (133) esp_image: segment 4: paddr=0002c344 vaddr=40084db8 size=05e9ch ( 24220) load[0m
+[0;32mI (143) esp_image: segment 5: paddr=000321e8 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (149) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (149) boot: Disabling RNG early entropy source...[0m
+[0;32mI (161) cpu_start: Multicore app[0m
+[0;32mI (169) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (169) cpu_start: Pro cpu start user code[0m
+[0;32mI (169) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (171) app_init: Application information:[0m
+[0;32mI (175) app_init: Project name:     ultrasound[0m
+[0;32mI (179) app_init: App version:      1[0m
+[0;32mI (183) app_init: Compile time:     Dec 12 2025 18:45:50[0m
+[0;32mI (188) app_init: ELF file SHA256:  d16d6a6e8...[0m
+[0;32mI (192) app_init: ESP-IDF:          v6.1-dev-1169-g0b8e7b0efa[0m
+[0;32mI (197) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (201) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (205) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (209) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (216) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (220) heap_init: At 3FFB2EA0 len 0002D160 (180 KiB): DRAM[0m
+[0;32mI (226) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (231) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (237) heap_init: At 4008AC54 len 000153AC (84 KiB): IRAM[0m
+[0;32mI (243) spi_flash: detected chip: generic[0m
+[0;32mI (246) spi_flash: flash io: dio[0m
+[0;33mW (248) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (262) main_task: Started on CPU0[0m
+[0;32mI (272) main_task: Calling app_main()[0m
+[0;32mI (272) DISPLAY_TEST: === Ultrasonic Distance Meter ===[0m
+[0;32mI (272) DISPLAY_TEST: Display initialized[0m
+[0;32mI (742) DISPLAY_TEST: Distance: 14.51 cm[0m
+[0;32mI (1242) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (1742) DISPLAY_TEST: Distance: 17.41 cm[0m
+[0;32mI (2242) DISPLAY_TEST: Distance: 17.36 cm[0m
+[0;32mI (2742) DISPLAY_TEST: Distance: 20.39 cm[0m
+[0;32mI (3242) DISPLAY_TEST: Distance: 20.22 cm[0m
+[0;32mI (3742) DISPLAY_TEST: Distance: 17.46 cm[0m
+[0;32mI (4242) DISPLAY_TEST: Distance: 14.99 cm[0m
+[0;32mI (4742) DISPLAY_TEST: Distance: 13.12 cm[0m
+[0;32mI (5242) DISPLAY_TEST: Distance: 12.23 cm[0m
+[1;31mE (5272) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (5272) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (5272) task_wdt: Tasks currently running:[0m
+[1;31mE (5272) task_wdt: CPU 0: main[0m
+[1;31mE (5272) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (5272) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400D6DE6:0x3FFB1030 0x400D71B8:0x3FFB1050 0x400826A1:0x3FFB1080 0x400D4FC7:0x3FFB40D0 0x400D501A:0x3FFB40F0 0x400D5314:0x3FFB4110 0x400D534E:0x3FFB4150 0x400D322A:0x3FFB4180 0x400DA2AD:0x3FFB41B0
+
+[0;32mI (5742) DISPLAY_TEST: Distance: 12.28 cm[0m
+[0;32mI (6242) DISPLAY_TEST: Distance: 12.23 cm[0m
+[0;32mI (6742) DISPLAY_TEST: Distance: 136.05 cm[0m
+[0;32mI (7262) DISPLAY_TEST: Distance: 371.88 cm[0m
+[0;33mW (7772) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (8262) DISPLAY_TEST: Distance: 321.65 cm[0m
+[0;32mI (8742) DISPLAY_TEST: Distance: 7.00 cm[0m
+[0;32mI (9242) DISPLAY_TEST: Distance: 7.10 cm[0m
+[0;32mI (9742) DISPLAY_TEST: Distance: 7.05 cm[0m
+[0;32mI (10242) DISPLAY_TEST: Distance: 7.46 cm[0m
+[1;31mE (10272) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (10272) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (10272) task_wdt: Tasks currently running:[0m
+[1;31mE (10272) task_wdt: CPU 0: main[0m
+[1;31mE (10272) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (10272) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400D6DE6:0x3FFB1030 0x400D71B8:0x3FFB1050 0x400826A1:0x3FFB1080 0x40008541:0x3FFB40B0 0x400D4FC7:0x3FFB40D0 0x400D501A:0x3FFB40F0 0x400D5314:0x3FFB4110 0x400D534E:0x3FFB4150 0x400D322A:0x3FFB4180 0x400DA2AD:0x3FFB41B0
+
+[0;32mI (10742) DISPLAY_TEST: Distance: 11.78 cm[0m
+[0;32mI (11242) DISPLAY_TEST: Distance: 12.04 cm[0m
+[0;32mI (11742) DISPLAY_TEST: Distance: 11.61 cm[0m
+[0;32mI (12242) DISPLAY_TEST: Distance: 19.62 cm[0m
+[0;32mI (12742) DISPLAY_TEST: Distance: 27.39 cm[0m

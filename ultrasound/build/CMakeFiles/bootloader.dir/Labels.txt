@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/CMakeFiles/bootloader
+/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/CMakeFiles/bootloader.rule
+/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/CMakeFiles/bootloader-complete.rule
+/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

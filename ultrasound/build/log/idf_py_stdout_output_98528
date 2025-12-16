@@ -1,0 +1,250 @@
+Command: /home/jozef/.espressif/python_env/idf6.1_py3.12_env/bin/python /home/jozef/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/ultrasound.elf /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/bootloader/bootloader.elf -m '/home/jozef/.espressif/python_env/idf6.1_py3.12_env/bin/python' '/home/jozef/esp/esp-idf/tools/idf.py' '-p' '/dev/ttyUSB0'
+ot: Disabling RNG early entropy source...
+[0;32mI (161) cpu_start: M�ets Jun  8 2016 00:22:57[0m
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6376
+load:0x40078000,len:15900
+ho 0 tail 12 room 4
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (29) boot: ESP-IDF v6.1-dev-1169-g0b8e7b0efa 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Dec 12 2025 18:45:48[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (32) boot: chip revision: v1.0[0m
+[0;32mI (35) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (53) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (79) boot: End of partition table[0m
+[0;32mI (82) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=08c74h ( 35956) map[0m
+[0;32mI (102) esp_image: segment 1: paddr=00018c9c vaddr=3ffb0000 size=025bch (  9660) load[0m
+[0;32mI (106) esp_image: segment 2: paddr=0001b260 vaddr=40080000 size=04db8h ( 19896) load[0m
+[0;32mI (115) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=0bf90h ( 49040) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=0002bfb8 vaddr=40084db8 size=05e9ch ( 24220) load[0m
+[0;32mI (142) esp_image: segment 5: paddr=00031e5c vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (148) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (148) boot: Disabling RNG early entropy source...[0m
+[0;32mI (161) cpu_start: Multicore app[0m
+[0;32mI (169) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (169) cpu_start: Pro cpu start user code[0m
+[0;32mI (169) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (171) app_init: Application information:[0m
+[0;32mI (175) app_init: Project name:     ultrasound[0m
+[0;32mI (179) app_init: App version:      1[0m
+[0;32mI (182) app_init: Compile time:     Dec 12 2025 18:45:50[0m
+[0;32mI (187) app_init: ELF file SHA256:  682b33e43...[0m
+[0;32mI (192) app_init: ESP-IDF:          v6.1-dev-1169-g0b8e7b0efa[0m
+[0;32mI (197) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (201) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (205) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (209) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (215) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (220) heap_init: At 3FFB2EA0 len 0002D160 (180 KiB): DRAM[0m
+[0;32mI (225) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (231) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (236) heap_init: At 4008AC54 len 000153AC (84 KiB): IRAM[0m
+[0;32mI (243) spi_flash: detected chip: generic[0m
+[0;32mI (245) spi_flash: flash io: dio[0m
+[0;33mW (248) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (261) main_task: Started on CPU0[0m
+[0;32mI (271) main_task: Calling app_main()[0m
+[0;32mI (271) ULTRASONIC: === ESP32 Ultrasonic Sensor Test ===[0m
+[0;32mI (271) ULTRASONIC: Sensor initialized: TRIG=GPIO26, ECHO=GPIO25[0m
+[0;32mI (271) ULTRASONIC: Distance: 30.78 cm[0m
+[0;32mI (771) ULTRASONIC: Distance: 31.37 cm[0m
+[0;32mI (1271) ULTRASONIC: Distance: 30.12 cm[0m
+[0;32mI (1771) ULTRASONIC: Distance: 27.68 cm[0m
+[0;32mI (2271) ULTRASONIC: Distance: 20.05 cm[0m
+[0;32mI (2771) ULTRASONIC: Distance: 19.21 cm[0m
+[0;32mI (3271) ULTRASONIC: Distance: 26.36 cm[0m
+[0;32mI (3771) ULTRASONIC: Distance: 94.19 cm[0m
+[0;32mI (4271) ULTRASONIC: Distance: 95.97 cm[0m
+[0;32mI (4771) ULTRASONIC: Distance: 114.15 cm[0m
+[0;32mI (5271) ULTRASONIC: Distance: 113.38 cm[0m
+[0;32mI (5771) ULTRASONIC: Distance: 113.36 cm[0m
+[0;32mI (6271) ULTRASONIC: Distance: 119.79 cm[0m
+[0;32mI (6771) ULTRASONIC: Distance: 115.11 cm[0m
+[0;32mI (7271) ULTRASONIC: Distance: 115.93 cm[0m
+[0;32mI (7771) ULTRASONIC: Distance: 29.50 cm[0m
+[0;32mI (8271) ULTRASONIC: Distance: 25.64 cm[0m
+[0;32mI (8771) ULTRASONIC: Distance: 20.87 cm[0m
+[0;32mI (9271) ULTRASONIC: Distance: 17.39 cm[0m
+[0;32mI (9771) ULTRASONIC: Distance: 13.27 cm[0m
+[0;32mI (10271) ULTRASONIC: Distance: 11.11 cm[0m
+[0;32mI (10771) ULTRASONIC: Distance: 6.29 cm[0m
+[0;32mI (11271) ULTRASONIC: Distance: 3.33 cm[0m
+[0;32mI (11771) ULTRASONIC: Distance: 2.38 cm[0m
+[0;32mI (12271) ULTRASONIC: Distance: 4.73 cm[0m
+[0;33mW (12801) ULTRASONIC: Out of range or error[0m
+[0;33mW (13331) ULTRASONIC: Out of range or error[0m
+[0;32mI (13831) ULTRASONIC: Distance: 2.33 cm[0m
+[0;32mI (14331) ULTRASONIC: Distance: 3.53 cm[0m
+[0;32mI (14831) ULTRASONIC: Distance: 3.41 cm[0m
+[0;32mI (15331) ULTRASONIC: Distance: 113.88 cm[0m
+[0;32mI (15831) ULTRASONIC: Distance: 117.32 cm[0m
+[0;32mI (16331) ULTRASONIC: Distance: 115.59 cm[0m
+[0;32mI (16831) ULTRASONIC: Distance: 113.45 cm[0m
+[0;32mI (17331) ULTRASONIC: Distance: 113.46 cm[0m
+[0;32mI (17831) ULTRASONIC: Distance: 113.04 cm[0m
+[0;32mI (18331) ULTRASONIC: Distance: 117.73 cm[0m
+[0;32mI (18831) ULTRASONIC: Distance: 113.46 cm[0m
+[0;32mI (19331) ULTRASONIC: Distance: 112.20 cm[0m
+[0;32mI (19831) ULTRASONIC: Distance: 110.46 cm[0m
+[0;32mI (20331) ULTRASONIC: Distance: 113.41 cm[0m
+[0;32mI (20831) ULTRASONIC: Distance: 116.88 cm[0m
+[0;32mI (21331) ULTRASONIC: Distance: 113.43 cm[0m
+[0;32mI (21831) ULTRASONIC: Distance: 110.45 cm[0m
+[0;32mI (22331) ULTRASONIC: Distance: 114.34 cm[0m
+[0;32mI (22831) ULTRASONIC: Distance: 116.88 cm[0m
+[0;32mI (23331) ULTRASONIC: Distance: 113.46 cm[0m
+[0;32mI (23831) ULTRASONIC: Distance: 115.16 cm[0m
+[0;32mI (24331) ULTRASONIC: Distance: 115.57 cm[0m
+[0;32mI (24831) ULTRASONIC: Distance: 114.78 cm[0m
+[0;32mI (25331) ULTRASONIC: Distance: 118.20 cm[0m
+[0;32mI (25831) ULTRASONIC: Distance: 113.45 cm[0m
+[0;32mI (26331) ULTRASONIC: Distance: 116.00 cm[0m
+[0;32mI (26831) ULTRASONIC: Distance: 114.30 cm[0m
+[0;32mI (27331) ULTRASONIC: Distance: 113.46 cm[0m
+[0;32mI (27831) ULTRASONIC: Distance: 113.41 cm[0m
+[0;32mI (28331) ULTRASONIC: Distance: 112.98 cm[0m
+[0;32mI (28831) ULTRASONIC: Distance: 114.27 cm[0m
+[0;32mI (29331) ULTRASONIC: Distance: 115.57 cm[0m
+[0;32mI (29831) ULTRASONIC: Distance: 112.97 cm[0m
+[0;32mI (30331) ULTRASONIC: Distance: 110.89 cm[0m
+[0;32mI (30831) ULTRASONIC: Distance: 113.43 cm[0m
+[0;32mI (31331) ULTRASONIC: Distance: 113.43 cm[0m
+[0;32mI (31831) ULTRASONIC: Distance: 113.84 cm[0m
+[0;32mI (32331) ULTRASONIC: Distance: 115.54 cm[0m
+[0;32mI (32831) ULTRASONIC: Distance: 115.57 cm[0m
+[0;32mI (33331) ULTRASONIC: Distance: 112.98 cm[0m
+[0;32mI (33831) ULTRASONIC: Distance: 116.41 cm[0m
+[0;32mI (34331) ULTRASONIC: Distance: 115.15 cm[0m
+[0;32mI (34831) ULTRASONIC: Distance: 116.84 cm[0m
+[0;32mI (35331) ULTRASONIC: Distance: 113.00 cm[0m
+[0;32mI (35831) ULTRASONIC: Distance: 113.81 cm[0m
+[0;32mI (36331) ULTRASONIC: Distance: 114.72 cm[0m
+[0;32mI (36831) ULTRASONIC: Distance: 116.43 cm[0m
+[0;32mI (37331) ULTRASONIC: Distance: 113.00 cm[0m
+[0;32mI (37831) ULTRASONIC: Distance: 114.72 cm[0m
+[0;32mI (38331) ULTRASONIC: Distance: 116.43 cm[0m
+[0;32mI (38831) ULTRASONIC: Distance: 114.70 cm[0m
+[0;32mI (39331) ULTRASONIC: Distance: 116.83 cm[0m
+[0;32mI (39831) ULTRASONIC: Distance: 113.43 cm[0m
+[0;32mI (40331) ULTRASONIC: Distance: 113.00 cm[0m
+[0;32mI (40831) ULTRASONIC: Distance: 113.86 cm[0m
+[0;32mI (41331) ULTRASONIC: Distance: 113.38 cm[0m
+[0;32mI (41831) ULTRASONIC: Distance: 113.89 cm[0m
+[0;32mI (42331) ULTRASONIC: Distance: 114.68 cm[0m
+[0;32mI (42831) ULTRASONIC: Distance: 113.40 cm[0m
+[0;32mI (43331) ULTRASONIC: Distance: 116.41 cm[0m
+[0;32mI (43831) ULTRASONIC: Distance: 114.68 cm[0m
+[0;32mI (44331) ULTRASONIC: Distance: 116.40 cm[0m
+[0;32mI (44831) ULTRASONIC: Distance: 118.09 cm[0m
+[0;32mI (45331) ULTRASONIC: Distance: 113.86 cm[0m
+[0;32mI (45831) ULTRASONIC: Distance: 112.95 cm[0m
+[0;32mI (46331) ULTRASONIC: Distance: 113.77 cm[0m
+[0;32mI (46831) ULTRASONIC: Distance: 114.70 cm[0m
+[0;32mI (47331) ULTRASONIC: Distance: 115.11 cm[0m
+[0;32mI (47831) ULTRASONIC: Distance: 115.99 cm[0m
+[0;32mI (48331) ULTRASONIC: Distance: 97.26 cm[0m
+[0;32mI (48831) ULTRASONIC: Distance: 113.86 cm[0m
+[0;32mI (49331) ULTRASONIC: Distance: 114.24 cm[0m
+[0;32mI (49831) ULTRASONIC: Distance: 113.81 cm[0m
+[0;32mI (50331) ULTRASONIC: Distance: 112.98 cm[0m
+[0;32mI (50831) ULTRASONIC: Distance: 113.88 cm[0m
+[0;32mI (51331) ULTRASONIC: Distance: 113.41 cm[0m
+[0;32mI (51831) ULTRASONIC: Distance: 114.68 cm[0m
+[0;32mI (52331) ULTRASONIC: Distance: 115.08 cm[0m
+[0;32mI (52831) ULTRASONIC: Distance: 114.27 cm[0m
+[0;32mI (53331) ULTRASONIC: Distance: 113.86 cm[0m
+[0;32mI (53831) ULTRASONIC: Distance: 115.11 cm[0m
+[0;32mI (54331) ULTRASONIC: Distance: 113.84 cm[0m
+[0;32mI (54831) ULTRASONIC: Distance: 113.00 cm[0m
+[0;32mI (55331) ULTRASONIC: Distance: 114.27 cm[0m
+[0;32mI (55831) ULTRASONIC: Distance: 113.38 cm[0m
+[0;32mI (56331) ULTRASONIC: Distance: 114.25 cm[0m
+[0;32mI (56831) ULTRASONIC: Distance: 113.45 cm[0m
+[0;32mI (57331) ULTRASONIC: Distance: 113.84 cm[0m
+[0;32mI (57831) ULTRASONIC: Distance: 113.82 cm[0m
+[0;32mI (58331) ULTRASONIC: Distance: 114.73 cm[0m
+[0;32mI (58831) ULTRASONIC: Distance: 114.70 cm[0m
+[0;32mI (59331) ULTRASONIC: Distance: 115.13 cm[0m
+[0;32mI (59831) ULTRASONIC: Distance: 114.30 cm[0m
+[0;32mI (60331) ULTRASONIC: Distance: 115.97 cm[0m
+[0;32mI (60831) ULTRASONIC: Distance: 116.84 cm[0m
+[0;32mI (61331) ULTRASONIC: Distance: 115.99 cm[0m
+[0;32mI (61831) ULTRASONIC: Distance: 113.86 cm[0m
+[0;32mI (62331) ULTRASONIC: Distance: 113.86 cm[0m
+[0;32mI (62831) ULTRASONIC: Distance: 112.54 cm[0m
+[0;32mI (63331) ULTRASONIC: Distance: 116.00 cm[0m
+[0;32mI (63831) ULTRASONIC: Distance: 113.84 cm[0m
+[0;32mI (64331) ULTRASONIC: Distance: 111.75 cm[0m
+[0;32mI (64831) ULTRASONIC: Distance: 115.15 cm[0m
+[0;32mI (65331) ULTRASONIC: Distance: 113.89 cm[0m
+[0;32mI (65831) ULTRASONIC: Distance: 112.62 cm[0m
+[0;32mI (66331) ULTRASONIC: Distance: 115.32 cm[0m
+[0;32mI (66831) ULTRASONIC: Distance: 112.62 cm[0m
+[0;32mI (67331) ULTRASONIC: Distance: 117.92 cm[0m
+[0;32mI (67831) ULTRASONIC: Distance: 117.60 cm[0m
+[0;32mI (68331) ULTRASONIC: Distance: 115.93 cm[0m
+[0;32mI (68831) ULTRASONIC: Distance: 118.03 cm[0m
+[0;32mI (69331) ULTRASONIC: Distance: 117.19 cm[0m
+[0;32mI (69831) ULTRASONIC: Distance: 117.20 cm[0m
+[0;32mI (70331) ULTRASONIC: Distance: 20.55 cm[0m
+[0;32mI (70831) ULTRASONIC: Distance: 14.80 cm[0m
+[0;32mI (71331) ULTRASONIC: Distance: 14.32 cm[0m
+[0;32mI (71831) ULTRASONIC: Distance: 15.16 cm[0m
+[0;32mI (72331) ULTRASONIC: Distance: 15.16 cm[0m
+[0;32mI (72831) ULTRASONIC: Distance: 16.19 cm[0m
+[0;32mI (73331) ULTRASONIC: Distance: 14.95 cm[0m
+[0;32mI (73831) ULTRASONIC: Distance: 116.79 cm[0m
+[0;32mI (74341) ULTRASONIC: Distance: 292.94 cm[0m
+[0;32mI (74841) ULTRASONIC: Distance: 115.51 cm[0m
+[0;32mI (75341) ULTRASONIC: Distance: 117.67 cm[0m
+[0;32mI (75841) ULTRASONIC: Distance: 115.88 cm[0m
+[0;32mI (76341) ULTRASONIC: Distance: 117.63 cm[0m
+[0;32mI (76841) ULTRASONIC: Distance: 118.46 cm[0m
+[0;32mI (77341) ULTRASONIC: Distance: 114.61 cm[0m
+[0;33mW (77871) ULTRASONIC: Out of range or error[0m
+[0;32mI (78371) ULTRASONIC: Distance: 116.72 cm[0m
+[0;33mW (78901) ULTRASONIC: Out of range or error[0m
+[0;32mI (79401) ULTRASONIC: Distance: 16.82 cm[0m
+[0;32mI (79901) ULTRASONIC: Distance: 16.29 cm[0m
+[0;32mI (80401) ULTRASONIC: Distance: 16.10 cm[0m
+[0;32mI (80901) ULTRASONIC: Distance: 16.46 cm[0m
+[0;32mI (81401) ULTRASONIC: Distance: 17.42 cm[0m
+[0;32mI (81901) ULTRASONIC: Distance: 17.24 cm[0m
+[0;32mI (82401) ULTRASONIC: Distance: 15.42 cm[0m
+[0;32mI (82901) ULTRASONIC: Distance: 15.57 cm[0m
+[0;32mI (83401) ULTRASONIC: Distance: 15.11 cm[0m
+[0;32mI (83901) ULTRASONIC: Distance: 15.68 cm[0m
+[0;32mI (84401) ULTRASONIC: Distance: 15.49 cm[0m
+[0;32mI (84901) ULTRASONIC: Distance: 15.31 cm[0m
+[0;32mI (85401) ULTRASONIC: Distance: 12.73 cm[0m
+[0;32mI (85901) ULTRASONIC: Distance: 10.44 cm[0m
+[0;32mI (86401) ULTRASONIC: Distance: 8.78 cm[0m
+[0;32mI (86901) ULTRASONIC: Distance: 7.53 cm[0m
+[0;32mI (87401) ULTRASONIC: Distance: 7.10 cm[0m
+[0;32mI (87911) ULTRASONIC: Distance: 290.37 cm[0m
+[0;32mI (88411) ULTRASONIC: Distance: 114.99 cm[0m
+[0;32mI (88911) ULTRASONIC: Distance: 114.12 cm[0m
+[0;32mI (89411) ULTRASONIC: Distance: 115.01 cm[0m
+[0;32mI (89911) ULTRASONIC: Distance: 117.99 cm[0m
+[0;32mI (90411) ULTRASONIC: Distance: 117.12 cm[0m
+[0;32mI (90911) ULTRASONIC: Distance: 115.40 cm[0m
+[0;32mI (91411) ULTRASONIC: Distance: 133.56 cm[0m
+[0;32mI (91911) ULTRASONIC: Distance: 102.66 cm[0m
+[0;32mI (92411) ULTRASONIC: Distance: 117.12 cm[0m
+[0;33mW (92941) ULTRASONIC: Out of range or error[0m
+[0;32mI (93441) ULTRASONIC: Distance: 117.58 cm[0m
+[0;32mI (93941) ULTRASONIC: Distance: 116.28 cm[0m
+[0;32mI (94441) ULTRASONIC: Distance: 116.31 cm[0m

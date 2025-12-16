@@ -1,0 +1,47 @@
+Command: /home/jozef/.espressif/python_env/idf6.1_py3.12_env/bin/python /home/jozef/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/ultrasound.elf /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/bootloader/bootloader.elf -m '/home/jozef/.espressif/python_env/idf6.1_py3.12_env/bin/python' '/home/jozef/esp/esp-idf/tools/idf.py' '-p' '/dev/ttyUSB0'
+[0;33m--- esp-idf-monitor 1.8.0 on /dev/ttyUSB0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x40080400: [0;33m_invalid_pc_placeholder[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m2235[0m
+[0m--- 0x40080644: [0;33mcall_start_cpu0[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0m--- 0x400d6dc2: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400d7194: [0;33mtask_wdt_isr[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x400826a1: [0;33m_xt_lowint1[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x400d5bfb: [0;33mgpio_ll_set_level[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/esp_hal_gpio/esp32/include/hal/gpio_ll.h[0m[0m:[1;31m495[0m
+[0m--- (inlined by) [0;33mgpio_set_level[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/esp_driver_gpio/src/gpio.c[0m[0m:[1;31m244[0m
+[0m--- 0x400d4fd9: [0;33mlatch_data[0m[0m at [0;32m/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c[0m[0m:[1;31m114[0m
+[0m--- 0x400d5019: [0;33mshow_digit[0m[0m at [0;32m/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c[0m[0m:[1;31m132[0m
+[0m--- 0x400d5320: [0;33mdisplay_distance[0m[0m at [0;32m/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c[0m[0m:[1;31m235[0m
+[0m--- 0x400d5354: [0;33mapp_main[0m[0m at [0;32m/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c[0m[0m:[1;31m251[0m
+[0m--- 0x400d3226: [0;33mmain_task[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/freertos/app_startup.c[0m[0m:[1;31m199[0m
+[0m--- 0x400da289: [0;33mvPortTaskWrapper[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m143[0m
+[0m--- 0x400d6dc2: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400d7194: [0;33mtask_wdt_isr[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x400826a1: [0;33m_xt_lowint1[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x400d5c24: [0;33mgpio_ll_set_level[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/esp_hal_gpio/esp32/include/hal/gpio_ll.h[0m[0m:[1;31m501[0m
+[0m--- (inlined by) [0;33mgpio_set_level[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/esp_driver_gpio/src/gpio.c[0m[0m:[1;31m244[0m
+[0m--- 0x400d505d: [0;33mshow_digit[0m[0m at [0;32m/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c[0m[0m:[1;31m138[0m
+[0m--- 0x400d5320: [0;33mdisplay_distance[0m[0m at [0;32m/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c[0m[0m:[1;31m235[0m
+[0m--- 0x400d5354: [0;33mapp_main[0m[0m at [0;32m/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c[0m[0m:[1;31m251[0m
+[0m--- 0x400d3226: [0;33mmain_task[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/freertos/app_startup.c[0m[0m:[1;31m199[0m
+[0m--- 0x400da289: [0;33mvPortTaskWrapper[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m143[0m
+[0m--- 0x400d6dc2: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400d7194: [0;33mtask_wdt_isr[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x400826a1: [0;33m_xt_lowint1[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x400d5be5: [0;33mgpio_set_level[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/esp_driver_gpio/src/gpio.c[0m[0m:[1;31m243[0m
+[0m--- 0x400d4fa5: [0;33msend_byte[0m[0m at [0;32m/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c[0m[0m:[1;31m104[0m
+[0m--- 0x400d5016: [0;33mshow_digit[0m[0m at [0;32m/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c[0m[0m:[1;31m131[0m
+[0m--- 0x400d5320: [0;33mdisplay_distance[0m[0m at [0;32m/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c[0m[0m:[1;31m235[0m
+[0m--- 0x400d5354: [0;33mapp_main[0m[0m at [0;32m/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c[0m[0m:[1;31m251[0m
+[0m--- 0x400d3226: [0;33mmain_task[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/freertos/app_startup.c[0m[0m:[1;31m199[0m
+[0m--- 0x400da289: [0;33mvPortTaskWrapper[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m143[0m
+[0m--- 0x400d6dc2: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400d7194: [0;33mtask_wdt_isr[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x400826a1: [0;33m_xt_lowint1[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x400d5b9a: [0;33mgpio_set_level[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/esp_driver_gpio/src/gpio.c[0m[0m:[1;31m243[0m
+[0m--- 0x400d4fac: [0;33msend_byte[0m[0m at [0;32m/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c[0m[0m:[1;31m106[0m
+[0m--- 0x400d5016: [0;33mshow_digit[0m[0m at [0;32m/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c[0m[0m:[1;31m131[0m
+[0m--- 0x400d5320: [0;33mdisplay_distance[0m[0m at [0;32m/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c[0m[0m:[1;31m235[0m
+[0m--- 0x400d5354: [0;33mapp_main[0m[0m at [0;32m/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c[0m[0m:[1;31m251[0m
+[0m--- 0x400d3226: [0;33mmain_task[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/freertos/app_startup.c[0m[0m:[1;31m199[0m
+[0m--- 0x400da289: [0;33mvPortTaskWrapper[0m[0m at [0;32m/home/jozef/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m143[0m
+[0m

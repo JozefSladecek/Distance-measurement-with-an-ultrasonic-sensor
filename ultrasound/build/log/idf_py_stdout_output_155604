@@ -1,0 +1,488 @@
+Command: /home/jozef/.espressif/python_env/idf6.1_py3.12_env/bin/python /home/jozef/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/ultrasound.elf /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/bootloader/bootloader.elf -m '/home/jozef/.espressif/python_env/idf6.1_py3.12_env/bin/python' '/home/jozef/esp/esp-idf/tools/idf.py' '-p' '/dev/ttyUSB0'
+rly entropy source...
+[0;32mI (161) cpu_start: Multicore app[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6376
+load:0x40078000,len:15900
+ho 0 tail 12 room 4
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (29) boot: ESP-IDF v6.1-dev-1169-g0b8e7b0efa 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Dec 12 2025 18:45:48[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (32) boot: chip revision: v1.0[0m
+[0;32mI (35) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (53) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (66) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (79) boot: End of partition table[0m
+[0;32mI (82) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=08c34h ( 35892) map[0m
+[0;32mI (102) esp_image: segment 1: paddr=00018c5c vaddr=3ffb0000 size=025bch (  9660) load[0m
+[0;32mI (106) esp_image: segment 2: paddr=0001b220 vaddr=40080000 size=04df8h ( 19960) load[0m
+[0;32mI (115) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=0c0ach ( 49324) map[0m
+[0;32mI (133) esp_image: segment 4: paddr=0002c0d4 vaddr=40084df8 size=05e5ch ( 24156) load[0m
+[0;32mI (143) esp_image: segment 5: paddr=00031f38 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (148) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (149) boot: Disabling RNG early entropy source...[0m
+[0;32mI (161) cpu_start: Multicore app[0m
+[0;32mI (169) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (169) cpu_start: Pro cpu start user code[0m
+[0;32mI (169) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (171) app_init: Application information:[0m
+[0;32mI (175) app_init: Project name:     ultrasound[0m
+[0;32mI (179) app_init: App version:      1[0m
+[0;32mI (182) app_init: Compile time:     Dec 12 2025 18:45:50[0m
+[0;32mI (187) app_init: ELF file SHA256:  440fd8ca3...[0m
+[0;32mI (192) app_init: ESP-IDF:          v6.1-dev-1169-g0b8e7b0efa[0m
+[0;32mI (197) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (201) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (205) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (209) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (215) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (220) heap_init: At 3FFB2EA0 len 0002D160 (180 KiB): DRAM[0m
+[0;32mI (225) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (231) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (236) heap_init: At 4008AC54 len 000153AC (84 KiB): IRAM[0m
+[0;32mI (243) spi_flash: detected chip: generic[0m
+[0;32mI (245) spi_flash: flash io: dio[0m
+[0;33mW (248) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (261) main_task: Started on CPU0[0m
+[0;32mI (271) main_task: Calling app_main()[0m
+[0;32mI (271) DISPLAY_TEST: Display initialized[0m
+[0;32mI (271) DISPLAY_TEST: Distance: 89.44 cm[0m
+[0;32mI (771) DISPLAY_TEST: Distance: 90.26 cm[0m
+[0;32mI (1271) DISPLAY_TEST: Distance: 88.17 cm[0m
+[0;32mI (1771) DISPLAY_TEST: Distance: 86.86 cm[0m
+[0;32mI (2271) DISPLAY_TEST: Distance: 88.19 cm[0m
+[0;32mI (2771) DISPLAY_TEST: Distance: 88.58 cm[0m
+[0;32mI (3271) DISPLAY_TEST: Distance: 88.17 cm[0m
+[0;32mI (3771) DISPLAY_TEST: Distance: 14.47 cm[0m
+[0;32mI (4271) DISPLAY_TEST: Distance: 13.53 cm[0m
+[0;32mI (4771) DISPLAY_TEST: Distance: 12.66 cm[0m
+[0;32mI (5271) DISPLAY_TEST: Distance: 13.94 cm[0m
+[0;32mI (5771) DISPLAY_TEST: Distance: 16.55 cm[0m
+[0;32mI (6271) DISPLAY_TEST: Distance: 11.15 cm[0m
+[0;32mI (6771) DISPLAY_TEST: Distance: 11.16 cm[0m
+[0;32mI (7271) DISPLAY_TEST: Distance: 10.72 cm[0m
+[0;32mI (7771) DISPLAY_TEST: Distance: 11.16 cm[0m
+[0;32mI (8271) DISPLAY_TEST: Distance: 10.74 cm[0m
+[0;32mI (8771) DISPLAY_TEST: Distance: 10.75 cm[0m
+[0;32mI (9271) DISPLAY_TEST: Distance: 10.79 cm[0m
+[0;32mI (9771) DISPLAY_TEST: Distance: 10.77 cm[0m
+[0;32mI (10271) DISPLAY_TEST: Distance: 11.20 cm[0m
+[0;32mI (10771) DISPLAY_TEST: Distance: 10.74 cm[0m
+[0;32mI (11271) DISPLAY_TEST: Distance: 10.74 cm[0m
+[0;32mI (11771) DISPLAY_TEST: Distance: 10.72 cm[0m
+[0;32mI (12271) DISPLAY_TEST: Distance: 10.74 cm[0m
+[0;32mI (12771) DISPLAY_TEST: Distance: 10.74 cm[0m
+[0;32mI (13271) DISPLAY_TEST: Distance: 11.01 cm[0m
+[0;32mI (13771) DISPLAY_TEST: Distance: 12.18 cm[0m
+[0;32mI (14271) DISPLAY_TEST: Distance: 95.85 cm[0m
+[0;32mI (14771) DISPLAY_TEST: Distance: 14.44 cm[0m
+[0;32mI (15271) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (15771) DISPLAY_TEST: Distance: 14.42 cm[0m
+[0;32mI (16271) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (16771) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (17271) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (17771) DISPLAY_TEST: Distance: 15.69 cm[0m
+[0;32mI (18271) DISPLAY_TEST: Distance: 14.44 cm[0m
+[0;32mI (18771) DISPLAY_TEST: Distance: 14.42 cm[0m
+[0;32mI (19271) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (19771) DISPLAY_TEST: Distance: 16.12 cm[0m
+[0;32mI (20271) DISPLAY_TEST: Distance: 14.85 cm[0m
+[0;32mI (20771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (21271) DISPLAY_TEST: Distance: 14.85 cm[0m
+[0;32mI (21771) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (22271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (22771) DISPLAY_TEST: Distance: 14.82 cm[0m
+[0;32mI (23271) DISPLAY_TEST: Distance: 14.42 cm[0m
+[0;32mI (23771) DISPLAY_TEST: Distance: 14.42 cm[0m
+[0;32mI (24271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (24771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (25271) DISPLAY_TEST: Distance: 14.41 cm[0m
+[0;32mI (25771) DISPLAY_TEST: Distance: 14.42 cm[0m
+[0;32mI (26271) DISPLAY_TEST: Distance: 14.41 cm[0m
+[0;32mI (26771) DISPLAY_TEST: Distance: 14.42 cm[0m
+[0;32mI (27271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (27771) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (28271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (28771) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (29271) DISPLAY_TEST: Distance: 16.14 cm[0m
+[0;32mI (29771) DISPLAY_TEST: Distance: 16.14 cm[0m
+[0;32mI (30271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (30771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (31271) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (31771) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (32271) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (32771) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (33271) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (33771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (34271) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (34771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (35271) DISPLAY_TEST: Distance: 14.42 cm[0m
+[0;32mI (35771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (36271) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (36771) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (37271) DISPLAY_TEST: Distance: 14.42 cm[0m
+[0;32mI (37771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (38271) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (38771) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (39271) DISPLAY_TEST: Distance: 14.42 cm[0m
+[0;32mI (39771) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (40271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (40771) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (41271) DISPLAY_TEST: Distance: 14.85 cm[0m
+[0;32mI (41771) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (42271) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (42771) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (43271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (43771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (44271) DISPLAY_TEST: Distance: 14.42 cm[0m
+[0;32mI (44771) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (45271) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (45771) DISPLAY_TEST: Distance: 16.14 cm[0m
+[0;32mI (46271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (46771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (47271) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (47771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (48271) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (48771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (49271) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (49771) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (50271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (50771) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (51271) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (51771) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (52271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (52771) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (53271) DISPLAY_TEST: Distance: 15.28 cm[0m
+[0;32mI (53771) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (54271) DISPLAY_TEST: Distance: 15.28 cm[0m
+[0;32mI (54771) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (55271) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (55771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (56271) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (56771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (57271) DISPLAY_TEST: Distance: 15.31 cm[0m
+[0;32mI (57771) DISPLAY_TEST: Distance: 14.89 cm[0m
+[0;32mI (58271) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (58771) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (59271) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (59771) DISPLAY_TEST: Distance: 15.28 cm[0m
+[0;32mI (60271) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (60771) DISPLAY_TEST: Distance: 15.28 cm[0m
+[0;32mI (61271) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (61771) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (62271) DISPLAY_TEST: Distance: 15.28 cm[0m
+[0;32mI (62771) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (63271) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (63771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (64271) DISPLAY_TEST: Distance: 15.31 cm[0m
+[0;32mI (64771) DISPLAY_TEST: Distance: 16.16 cm[0m
+[0;32mI (65271) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (65771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (66271) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (66771) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (67271) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (67771) DISPLAY_TEST: Distance: 15.28 cm[0m
+[0;32mI (68271) DISPLAY_TEST: Distance: 15.28 cm[0m
+[0;32mI (68771) DISPLAY_TEST: Distance: 14.85 cm[0m
+[0;32mI (69271) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (69771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (70271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (70771) DISPLAY_TEST: Distance: 14.41 cm[0m
+[0;32mI (71271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (71771) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (72271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (72771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (73271) DISPLAY_TEST: Distance: 14.85 cm[0m
+[0;32mI (73771) DISPLAY_TEST: Distance: 15.28 cm[0m
+[0;32mI (74271) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (74771) DISPLAY_TEST: Distance: 15.69 cm[0m
+[0;32mI (75271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (75771) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (76271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (76771) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (77271) DISPLAY_TEST: Distance: 15.73 cm[0m
+[0;32mI (77771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (78271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (78771) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (79271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (79771) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (80271) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (80771) DISPLAY_TEST: Distance: 14.85 cm[0m
+[0;32mI (81271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (81771) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (82271) DISPLAY_TEST: Distance: 16.12 cm[0m
+[0;32mI (82771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (83271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (83771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (84271) DISPLAY_TEST: Distance: 14.41 cm[0m
+[0;32mI (84771) DISPLAY_TEST: Distance: 15.69 cm[0m
+[0;32mI (85271) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (85771) DISPLAY_TEST: Distance: 15.28 cm[0m
+[0;32mI (86271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (86771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (87271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (87771) DISPLAY_TEST: Distance: 15.69 cm[0m
+[0;32mI (88271) DISPLAY_TEST: Distance: 14.83 cm[0m
+[0;32mI (88771) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (89271) DISPLAY_TEST: Distance: 15.71 cm[0m
+[0;32mI (89771) DISPLAY_TEST: Distance: 16.33 cm[0m
+[0;32mI (90271) DISPLAY_TEST: Distance: 15.14 cm[0m
+[0;32mI (90771) DISPLAY_TEST: Distance: 13.63 cm[0m
+[0;32mI (91271) DISPLAY_TEST: Distance: 18.97 cm[0m
+[0;32mI (91771) DISPLAY_TEST: Distance: 14.95 cm[0m
+[0;32mI (92271) DISPLAY_TEST: Distance: 13.33 cm[0m
+[0;32mI (92771) DISPLAY_TEST: Distance: 12.02 cm[0m
+[0;32mI (93271) DISPLAY_TEST: Distance: 12.47 cm[0m
+[0;32mI (93771) DISPLAY_TEST: Distance: 12.45 cm[0m
+[0;32mI (94271) DISPLAY_TEST: Distance: 12.43 cm[0m
+[0;32mI (94771) DISPLAY_TEST: Distance: 12.85 cm[0m
+[0;32mI (95271) DISPLAY_TEST: Distance: 13.29 cm[0m
+[0;32mI (95771) DISPLAY_TEST: Distance: 16.21 cm[0m
+[0;32mI (96271) DISPLAY_TEST: Distance: 15.81 cm[0m
+[0;32mI (96771) DISPLAY_TEST: Distance: 15.81 cm[0m
+[0;32mI (97271) DISPLAY_TEST: Distance: 13.27 cm[0m
+[0;32mI (97771) DISPLAY_TEST: Distance: 14.97 cm[0m
+[0;32mI (98271) DISPLAY_TEST: Distance: 13.29 cm[0m
+[0;32mI (98771) DISPLAY_TEST: Distance: 13.27 cm[0m
+[0;32mI (99271) DISPLAY_TEST: Distance: 18.14 cm[0m
+[0;32mI (99771) DISPLAY_TEST: Distance: 12.74 cm[0m
+[0;32mI (100271) DISPLAY_TEST: Distance: 19.50 cm[0m
+[0;32mI (100771) DISPLAY_TEST: Distance: 13.63 cm[0m
+[0;32mI (101271) DISPLAY_TEST: Distance: 15.30 cm[0m
+[0;32mI (101771) DISPLAY_TEST: Distance: 15.68 cm[0m
+[0;32mI (102271) DISPLAY_TEST: Distance: 16.96 cm[0m
+[0;32mI (102771) DISPLAY_TEST: Distance: 12.35 cm[0m
+[0;32mI (103271) DISPLAY_TEST: Distance: 12.50 cm[0m
+[0;32mI (103771) DISPLAY_TEST: Distance: 11.25 cm[0m
+[0;32mI (104271) DISPLAY_TEST: Distance: 11.71 cm[0m
+[0;32mI (104771) DISPLAY_TEST: Distance: 145.86 cm[0m
+[0;32mI (105271) DISPLAY_TEST: Distance: 13.36 cm[0m
+[0;32mI (105771) DISPLAY_TEST: Distance: 17.27 cm[0m
+[0;32mI (106271) DISPLAY_TEST: Distance: 16.86 cm[0m
+[0;32mI (106771) DISPLAY_TEST: Distance: 15.56 cm[0m
+[0;32mI (107271) DISPLAY_TEST: Distance: 12.04 cm[0m
+[0;32mI (107771) DISPLAY_TEST: Distance: 14.05 cm[0m
+[0;32mI (108271) DISPLAY_TEST: Distance: 14.94 cm[0m
+[0;32mI (108771) DISPLAY_TEST: Distance: 13.34 cm[0m
+[0;32mI (109271) DISPLAY_TEST: Distance: 13.79 cm[0m
+[0;32mI (109771) DISPLAY_TEST: Distance: 12.38 cm[0m
+[0;32mI (110271) DISPLAY_TEST: Distance: 12.35 cm[0m
+[0;32mI (110771) DISPLAY_TEST: Distance: 12.35 cm[0m
+[0;32mI (111271) DISPLAY_TEST: Distance: 13.38 cm[0m
+[0;32mI (111771) DISPLAY_TEST: Distance: 14.20 cm[0m
+[0;32mI (112271) DISPLAY_TEST: Distance: 12.45 cm[0m
+[0;32mI (112771) DISPLAY_TEST: Distance: 12.81 cm[0m
+[0;32mI (113271) DISPLAY_TEST: Distance: 12.81 cm[0m
+[0;32mI (113771) DISPLAY_TEST: Distance: 13.69 cm[0m
+[0;32mI (114271) DISPLAY_TEST: Distance: 16.65 cm[0m
+[0;32mI (114771) DISPLAY_TEST: Distance: 120.38 cm[0m
+[0;32mI (115271) DISPLAY_TEST: Distance: 23.20 cm[0m
+[0;32mI (115771) DISPLAY_TEST: Distance: 20.70 cm[0m
+[0;32mI (116271) DISPLAY_TEST: Distance: 21.52 cm[0m
+[0;32mI (116771) DISPLAY_TEST: Distance: 24.04 cm[0m
+[0;32mI (117271) DISPLAY_TEST: Distance: 132.35 cm[0m
+[0;32mI (117771) DISPLAY_TEST: Distance: 92.40 cm[0m
+[0;32mI (118271) DISPLAY_TEST: Distance: 17.94 cm[0m
+[0;32mI (118771) DISPLAY_TEST: Distance: 88.48 cm[0m
+[0;32mI (119271) DISPLAY_TEST: Distance: 100.81 cm[0m
+[0;32mI (119771) DISPLAY_TEST: Distance: 98.22 cm[0m
+[0;32mI (120271) DISPLAY_TEST: Distance: 17.06 cm[0m
+[0;32mI (120771) DISPLAY_TEST: Distance: 15.76 cm[0m
+[0;32mI (121271) DISPLAY_TEST: Distance: 15.35 cm[0m
+[0;32mI (121771) DISPLAY_TEST: Distance: 16.17 cm[0m
+[0;32mI (122271) DISPLAY_TEST: Distance: 99.45 cm[0m
+[0;32mI (122771) DISPLAY_TEST: Distance: 102.04 cm[0m
+[0;32mI (123271) DISPLAY_TEST: Distance: 104.13 cm[0m
+[0;32mI (123771) DISPLAY_TEST: Distance: 104.15 cm[0m
+[0;32mI (124271) DISPLAY_TEST: Distance: 13.24 cm[0m
+[0;32mI (124771) DISPLAY_TEST: Distance: 12.40 cm[0m
+[0;32mI (125271) DISPLAY_TEST: Distance: 12.38 cm[0m
+[0;32mI (125771) DISPLAY_TEST: Distance: 11.99 cm[0m
+[0;32mI (126271) DISPLAY_TEST: Distance: 90.65 cm[0m
+[0;32mI (126771) DISPLAY_TEST: Distance: 87.29 cm[0m
+[0;32mI (127271) DISPLAY_TEST: Distance: 89.80 cm[0m
+[0;33mW (127801) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (128301) DISPLAY_TEST: Distance: 87.67 cm[0m
+[0;32mI (128801) DISPLAY_TEST: Distance: 86.01 cm[0m
+[0;32mI (129301) DISPLAY_TEST: Distance: 89.37 cm[0m
+[0;32mI (129801) DISPLAY_TEST: Distance: 92.37 cm[0m
+[0;32mI (130301) DISPLAY_TEST: Distance: 91.56 cm[0m
+[0;32mI (130801) DISPLAY_TEST: Distance: 81.91 cm[0m
+[0;32mI (131301) DISPLAY_TEST: Distance: 86.83 cm[0m
+[0;32mI (131801) DISPLAY_TEST: Distance: 89.81 cm[0m
+[0;32mI (132301) DISPLAY_TEST: Distance: 88.55 cm[0m
+[0;32mI (132801) DISPLAY_TEST: Distance: 87.65 cm[0m
+[0;32mI (133301) DISPLAY_TEST: Distance: 89.42 cm[0m
+[0;32mI (133801) DISPLAY_TEST: Distance: 89.42 cm[0m
+[0;32mI (134301) DISPLAY_TEST: Distance: 90.28 cm[0m
+[0;32mI (134801) DISPLAY_TEST: Distance: 83.13 cm[0m
+[0;32mI (135301) DISPLAY_TEST: Distance: 88.55 cm[0m
+[0;32mI (135801) DISPLAY_TEST: Distance: 90.26 cm[0m
+[0;32mI (136301) DISPLAY_TEST: Distance: 88.56 cm[0m
+[0;32mI (136801) DISPLAY_TEST: Distance: 87.28 cm[0m
+[0;32mI (137301) DISPLAY_TEST: Distance: 88.13 cm[0m
+[0;32mI (137801) DISPLAY_TEST: Distance: 87.69 cm[0m
+[0;32mI (138301) DISPLAY_TEST: Distance: 87.71 cm[0m
+[0;32mI (138821) DISPLAY_TEST: Distance: 347.63 cm[0m
+[0;32mI (139321) DISPLAY_TEST: Distance: 91.07 cm[0m
+[0;32mI (139821) DISPLAY_TEST: Distance: 93.19 cm[0m
+[0;32mI (140321) DISPLAY_TEST: Distance: 86.78 cm[0m
+[0;32mI (140821) DISPLAY_TEST: Distance: 87.69 cm[0m
+[0;32mI (141321) DISPLAY_TEST: Distance: 88.51 cm[0m
+[0;32mI (141821) DISPLAY_TEST: Distance: 87.26 cm[0m
+[0;32mI (142321) DISPLAY_TEST: Distance: 89.87 cm[0m
+[0;32mI (142821) DISPLAY_TEST: Distance: 87.71 cm[0m
+[0;32mI (143321) DISPLAY_TEST: Distance: 87.72 cm[0m
+[0;32mI (143821) DISPLAY_TEST: Distance: 90.23 cm[0m
+[0;32mI (144321) DISPLAY_TEST: Distance: 86.40 cm[0m
+[0;32mI (144821) DISPLAY_TEST: Distance: 88.55 cm[0m
+[0;32mI (145321) DISPLAY_TEST: Distance: 88.58 cm[0m
+[0;32mI (145821) DISPLAY_TEST: Distance: 86.42 cm[0m
+[0;33mW (146351) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (146851) DISPLAY_TEST: Distance: 91.08 cm[0m
+[0;32mI (147351) DISPLAY_TEST: Distance: 11.58 cm[0m
+[0;33mW (147881) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (148381) DISPLAY_TEST: Distance: 13.33 cm[0m
+[0;32mI (148881) DISPLAY_TEST: Distance: 13.26 cm[0m
+[0;32mI (149381) DISPLAY_TEST: Distance: 14.32 cm[0m
+[0;32mI (149881) DISPLAY_TEST: Distance: 88.08 cm[0m
+[0;32mI (150381) DISPLAY_TEST: Distance: 105.34 cm[0m
+[0;32mI (150881) DISPLAY_TEST: Distance: 88.13 cm[0m
+[0;32mI (151381) DISPLAY_TEST: Distance: 89.01 cm[0m
+[0;32mI (151881) DISPLAY_TEST: Distance: 81.05 cm[0m
+[0;32mI (152381) DISPLAY_TEST: Distance: 89.01 cm[0m
+[0;32mI (152881) DISPLAY_TEST: Distance: 11.83 cm[0m
+[0;32mI (153381) DISPLAY_TEST: Distance: 11.92 cm[0m
+[0;32mI (153881) DISPLAY_TEST: Distance: 12.38 cm[0m
+[0;32mI (154381) DISPLAY_TEST: Distance: 11.52 cm[0m
+[0;32mI (154881) DISPLAY_TEST: Distance: 11.52 cm[0m
+[0;32mI (155381) DISPLAY_TEST: Distance: 12.30 cm[0m
+[0;32mI (155881) DISPLAY_TEST: Distance: 11.82 cm[0m
+[0;32mI (156381) DISPLAY_TEST: Distance: 88.10 cm[0m
+[0;32mI (156881) DISPLAY_TEST: Distance: 88.96 cm[0m
+[0;33mW (157411) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (157911) DISPLAY_TEST: Distance: 147.64 cm[0m
+[0;32mI (158421) DISPLAY_TEST: Distance: 166.49 cm[0m
+[0;32mI (158921) DISPLAY_TEST: Distance: 91.14 cm[0m
+[0;32mI (159421) DISPLAY_TEST: Distance: 89.81 cm[0m
+[0;32mI (159921) DISPLAY_TEST: Distance: 87.67 cm[0m
+[0;32mI (160421) DISPLAY_TEST: Distance: 88.55 cm[0m
+[0;32mI (160931) DISPLAY_TEST: Distance: 165.53 cm[0m
+[0;32mI (161431) DISPLAY_TEST: Distance: 98.08 cm[0m
+[0;32mI (161931) DISPLAY_TEST: Distance: 92.35 cm[0m
+[0;33mW (162461) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (162961) DISPLAY_TEST: Distance: 91.08 cm[0m
+[0;33mW (163491) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (163991) DISPLAY_TEST: Distance: 90.69 cm[0m
+[0;32mI (164491) DISPLAY_TEST: Distance: 100.31 cm[0m
+[0;33mW (165021) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (165551) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (166081) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (166581) DISPLAY_TEST: Distance: 90.67 cm[0m
+[0;32mI (167081) DISPLAY_TEST: Distance: 89.81 cm[0m
+[0;33mW (167611) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (168111) DISPLAY_TEST: Distance: 103.26 cm[0m
+[0;32mI (168611) DISPLAY_TEST: Distance: 79.40 cm[0m
+[0;32mI (169111) DISPLAY_TEST: Distance: 103.65 cm[0m
+[0;32mI (169611) DISPLAY_TEST: Distance: 91.51 cm[0m
+[0;32mI (170111) DISPLAY_TEST: Distance: 101.94 cm[0m
+[0;32mI (170611) DISPLAY_TEST: Distance: 89.81 cm[0m
+[0;32mI (171111) DISPLAY_TEST: Distance: 92.80 cm[0m
+[0;32mI (171611) DISPLAY_TEST: Distance: 90.26 cm[0m
+[0;32mI (172111) DISPLAY_TEST: Distance: 91.10 cm[0m
+[0;32mI (172611) DISPLAY_TEST: Distance: 87.72 cm[0m
+[0;32mI (173111) DISPLAY_TEST: Distance: 91.07 cm[0m
+[0;32mI (173611) DISPLAY_TEST: Distance: 93.67 cm[0m
+[0;32mI (174111) DISPLAY_TEST: Distance: 90.67 cm[0m
+[0;32mI (174611) DISPLAY_TEST: Distance: 88.12 cm[0m
+[0;32mI (175111) DISPLAY_TEST: Distance: 102.35 cm[0m
+[0;32mI (175611) DISPLAY_TEST: Distance: 88.97 cm[0m
+[0;32mI (176111) DISPLAY_TEST: Distance: 88.94 cm[0m
+[0;32mI (176611) DISPLAY_TEST: Distance: 93.62 cm[0m
+[0;32mI (177111) DISPLAY_TEST: Distance: 88.13 cm[0m
+[0;32mI (177611) DISPLAY_TEST: Distance: 90.65 cm[0m
+[0;32mI (178111) DISPLAY_TEST: Distance: 89.85 cm[0m
+[0;32mI (178611) DISPLAY_TEST: Distance: 101.53 cm[0m
+[0;32mI (179111) DISPLAY_TEST: Distance: 90.28 cm[0m
+[0;32mI (179611) DISPLAY_TEST: Distance: 88.51 cm[0m
+[0;32mI (180111) DISPLAY_TEST: Distance: 88.55 cm[0m
+[0;32mI (180611) DISPLAY_TEST: Distance: 86.85 cm[0m
+[0;32mI (181111) DISPLAY_TEST: Distance: 89.42 cm[0m
+[0;32mI (181611) DISPLAY_TEST: Distance: 88.10 cm[0m
+[0;32mI (182111) DISPLAY_TEST: Distance: 91.51 cm[0m
+[0;32mI (182611) DISPLAY_TEST: Distance: 22.91 cm[0m
+[0;32mI (183111) DISPLAY_TEST: Distance: 101.55 cm[0m
+[0;32mI (183611) DISPLAY_TEST: Distance: 92.76 cm[0m
+[0;32mI (184111) DISPLAY_TEST: Distance: 91.96 cm[0m
+[0;32mI (184611) DISPLAY_TEST: Distance: 89.40 cm[0m
+[0;32mI (185111) DISPLAY_TEST: Distance: 102.40 cm[0m
+[0;32mI (185611) DISPLAY_TEST: Distance: 88.99 cm[0m
+[0;32mI (186111) DISPLAY_TEST: Distance: 88.56 cm[0m
+[0;32mI (186611) DISPLAY_TEST: Distance: 72.54 cm[0m
+[0;32mI (187111) DISPLAY_TEST: Distance: 86.86 cm[0m
+[0;32mI (187611) DISPLAY_TEST: Distance: 89.15 cm[0m
+[0;32mI (188111) DISPLAY_TEST: Distance: 86.44 cm[0m
+[0;33mW (188641) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (189171) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (189701) DISPLAY_TEST: Distance: 511.93 cm[0m
+[0;32mI (190201) DISPLAY_TEST: Distance: 100.72 cm[0m
+[0;32mI (190701) DISPLAY_TEST: Distance: 98.54 cm[0m
+[0;32mI (191211) DISPLAY_TEST: Distance: 176.22 cm[0m
+[0;32mI (191711) DISPLAY_TEST: Distance: 107.94 cm[0m
+[0;32mI (192211) DISPLAY_TEST: Distance: 104.51 cm[0m
+[0;33mW (192741) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (193241) DISPLAY_TEST: Distance: 99.83 cm[0m
+[0;32mI (193741) DISPLAY_TEST: Distance: 101.10 cm[0m
+[0;32mI (194241) DISPLAY_TEST: Distance: 98.90 cm[0m
+[0;33mW (194771) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (195271) DISPLAY_TEST: Distance: 97.67 cm[0m
+[0;32mI (195771) DISPLAY_TEST: Distance: 100.65 cm[0m
+[0;32mI (196271) DISPLAY_TEST: Distance: 105.35 cm[0m
+[0;32mI (196771) DISPLAY_TEST: Distance: 100.22 cm[0m
+[0;32mI (197271) DISPLAY_TEST: Distance: 100.31 cm[0m
+[0;33mW (197801) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (198301) DISPLAY_TEST: Distance: 94.02 cm[0m
+[0;33mW (198831) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (199331) DISPLAY_TEST: Distance: 101.49 cm[0m
+[0;32mI (199861) DISPLAY_TEST: Distance: 513.59 cm[0m
+[0;32mI (200361) DISPLAY_TEST: Distance: 101.53 cm[0m
+[0;32mI (200871) DISPLAY_TEST: Distance: 176.16 cm[0m
+[0;32mI (201381) DISPLAY_TEST: Distance: 176.13 cm[0m
+[0;33mW (201911) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (202411) DISPLAY_TEST: Distance: 87.31 cm[0m
+[0;33mW (202941) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (203471) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (203971) DISPLAY_TEST: Distance: 100.69 cm[0m
+[0;32mI (204491) DISPLAY_TEST: Distance: 340.46 cm[0m
+[0;32mI (204991) DISPLAY_TEST: Distance: 102.85 cm[0m
+[0;32mI (205491) DISPLAY_TEST: Distance: 98.58 cm[0m
+[0;33mW (206021) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (206521) DISPLAY_TEST: Distance: 101.13 cm[0m
+[0;33mW (207051) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (207551) DISPLAY_TEST: Distance: 107.98 cm[0m
+[0;32mI (208051) DISPLAY_TEST: Distance: 101.58 cm[0m
+[0;32mI (208571) DISPLAY_TEST: Distance: 347.68 cm[0m
+[0;33mW (209101) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (209601) DISPLAY_TEST: Distance: 99.86 cm[0m
+[0;32mI (210101) DISPLAY_TEST: Distance: 101.12 cm[0m
+[0;32mI (210601) DISPLAY_TEST: Distance: 101.15 cm[0m
+[0;32mI (211101) DISPLAY_TEST: Distance: 102.03 cm[0m
+[0;32mI (211601) DISPLAY_TEST: Distance: 105.01 cm[0m
+[0;32mI (212101) DISPLAY_TEST: Distance: 101.13 cm[0m
+[0;32mI (212601) DISPLAY_TEST: Distance: 103.26 cm[0m
+[0;32mI (213101) DISPLAY_TEST: Distance: 104.08 cm[0m
+[0;32mI (213611) DISPLAY_TEST: Distance: 176.15 cm[0m
+[0;32mI (214111) DISPLAY_TEST: Distance: 81.89 cm[0m

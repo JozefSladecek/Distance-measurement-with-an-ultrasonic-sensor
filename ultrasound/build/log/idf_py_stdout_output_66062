@@ -1,0 +1,22 @@
+Command: ninja all
+[1/9] Performing build step for 'bootloader'
+[1/1] cd /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/bootloader && /home/jozef/.espressif/python_env/idf6.1_py3.12_env/bin/python /home/jozef/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/bootloader/bootloader.bin
+Bootloader binary size 0x66b0 bytes. 0x950 bytes (8%) free.
+[2/9] No install step for 'bootloader'
+[3/9] Completed 'bootloader'
+[4/9] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ultrasound.c.obj
+/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c: In function 'app_main':
+/home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/main/ultrasound.c:511:10: warning: unused variable 'sw2_last_state' [-Wunused-variable]
+  511 |     bool sw2_last_state = 1;  // 1 = not pressed (pull-up)
+      |          ^~~~~~~~~~~~~~
+[5/9] Linking C static library esp-idf/main/libmain.a
+[6/9] Generating esp-idf/esp_system/ld/sections.ld
+[7/9] Linking CXX executable ultrasound.elf
+[8/9] Generating binary image from built executable
+esptool v5.2.dev1
+Creating ESP32 image...
+Merged 2 ELF sections.
+Successfully created ESP32 image.
+Generated /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/ultrasound.bin
+[9/9] cd /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build && /home/jozef/.espressif/python_env/idf6.1_py3.12_env/bin/python /home/jozef/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/partition_table/partition-table.bin /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/ultrasound.bin
+ultrasound.bin binary size 0x26fe0 bytes. Smallest app partition is 0x100000 bytes. 0xd9020 bytes (85%) free.

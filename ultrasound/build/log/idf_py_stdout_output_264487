@@ -1,0 +1,560 @@
+Command: /home/jozef/.espressif/python_env/idf6.1_py3.12_env/bin/python /home/jozef/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/ultrasound.elf /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/bootloader/bootloader.elf -m '/home/jozef/.espressif/python_env/idf6.1_py3.12_env/bin/python' '/home/jozef/esp/esp-idf/tools/idf.py' '-p' '/dev/ttyUSB0'
+=00028h (    40) load
+[0;32mI (156) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (156) boot: Disab�ets Jun  8 2016 00:22:57[0m
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6376
+load:0x40078000,len:15900
+ho 0 tail 12 room 4
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (29) boot: ESP-IDF v6.1-dev-1169-g0b8e7b0efa 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Dec 12 2025 18:45:48[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (32) boot: chip revision: v1.0[0m
+[0;32mI (35) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (53) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (79) boot: End of partition table[0m
+[0;32mI (82) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=09ffch ( 40956) map[0m
+[0;32mI (104) esp_image: segment 1: paddr=0001a024 vaddr=3ffb0000 size=02624h (  9764) load[0m
+[0;32mI (108) esp_image: segment 2: paddr=0001c650 vaddr=40080000 size=039c8h ( 14792) load[0m
+[0;32mI (114) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=0f31ch ( 62236) map[0m
+[0;32mI (138) esp_image: segment 4: paddr=0002f344 vaddr=400839c8 size=07768h ( 30568) load[0m
+[0;32mI (150) esp_image: segment 5: paddr=00036ab4 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (156) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (156) boot: Disabling RNG early entropy source...[0m
+[0;32mI (168) cpu_start: Multicore app[0m
+[0;32mI (176) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (177) cpu_start: Pro cpu start user code[0m
+[0;32mI (177) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (179) app_init: Application information:[0m
+[0;32mI (182) app_init: Project name:     ultrasound[0m
+[0;32mI (187) app_init: App version:      1[0m
+[0;32mI (190) app_init: Compile time:     Dec 12 2025 18:45:50[0m
+[0;32mI (195) app_init: ELF file SHA256:  01e835b6c...[0m
+[0;32mI (199) app_init: ESP-IDF:          v6.1-dev-1169-g0b8e7b0efa[0m
+[0;32mI (205) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (209) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (213) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (217) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (223) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (228) heap_init: At 3FFB2F78 len 0002D088 (180 KiB): DRAM[0m
+[0;32mI (233) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (238) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (244) heap_init: At 4008B130 len 00014ED0 (83 KiB): IRAM[0m
+[0;32mI (251) spi_flash: detected chip: generic[0m
+[0;32mI (253) spi_flash: flash io: dio[0m
+[0;33mW (256) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (269) main_task: Started on CPU0[0m
+[0;32mI (279) main_task: Calling app_main()[0m
+[0;32mI (279) DISPLAY_TEST: === Ultrasonic Distance Meter ===[0m
+[0;32mI (279) DISPLAY_TEST: Display initialized[0m
+[0;32mI (279) DISPLAY_TEST: Button SW1 initialized with interrupt on GPIO 4[0m
+[0;32mI (469) DISPLAY_TEST: Distance: 342.83 cm[0m
+[0;33mW (679) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (869) DISPLAY_TEST: Distance: 337.63 cm[0m
+[0;32mI (1059) DISPLAY_TEST: Distance: 225.45 cm[0m
+[0;33mW (1279) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (1479) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (1679) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (1879) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (2049) DISPLAY_TEST: Distance: 22.64 cm[0m
+[0;32mI (2249) DISPLAY_TEST: Distance: 22.24 cm[0m
+[0;32mI (2449) DISPLAY_TEST: Distance: 21.81 cm[0m
+[0;32mI (2649) DISPLAY_TEST: Distance: 23.10 cm[0m
+[0;33mW (2879) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (3059) DISPLAY_TEST: Distance: 145.40 cm[0m
+[0;32mI (3249) DISPLAY_TEST: Distance: 24.83 cm[0m
+[0;33mW (3479) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (3649) DISPLAY_TEST: Distance: 23.99 cm[0m
+[0;32mI (3849) DISPLAY_TEST: Distance: 22.81 cm[0m
+[0;32mI (4059) DISPLAY_TEST: Distance: 136.34 cm[0m
+[0;33mW (4279) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (4479) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (4679) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (4879) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (5079) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (5249) DISPLAY_TEST: Distance: 22.79 cm[0m
+[1;31mE (5279) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (5279) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (5279) task_wdt: Tasks currently running:[0m
+[1;31mE (5279) task_wdt: CPU 0: main[0m
+[1;31mE (5279) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (5279) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400D9846:0x3FFB1050 0x400D9C18:0x3FFB1070 0x4008274D:0x3FFB10A0 0x4000C050:0x3FFB4170 0x40008544:0x3FFB4180 0x400D57A7:0x3FFB41A0 0x400D57FA:0x3FFB41C0 0x400D5B3E:0x3FFB41E0 0x400D5B82:0x3FFB4220 0x400D387E:0x3FFB4260 0x400DD28D:0x3FFB4290
+
+[0;33mW (5479) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (5649) DISPLAY_TEST: Distance: 50.61 cm[0m
+[0;32mI (5869) DISPLAY_TEST: Distance: 352.67 cm[0m
+[0;33mW (6079) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (6279) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (6479) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (6679) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (6849) DISPLAY_TEST: Distance: 74.45 cm[0m
+[0;32mI (7069) DISPLAY_TEST: Distance: 265.22 cm[0m
+[0;32mI (7249) DISPLAY_TEST: Distance: 21.85 cm[0m
+[0;32mI (7449) DISPLAY_TEST: Distance: 21.80 cm[0m
+[0;32mI (7649) DISPLAY_TEST: Distance: 22.66 cm[0m
+[0;32mI (7849) DISPLAY_TEST: Distance: 22.67 cm[0m
+[0;32mI (8049) DISPLAY_TEST: Distance: 22.23 cm[0m
+[0;32mI (8249) DISPLAY_TEST: Distance: 21.81 cm[0m
+[0;32mI (8449) DISPLAY_TEST: Distance: 21.81 cm[0m
+[0;32mI (8649) DISPLAY_TEST: Distance: 22.23 cm[0m
+[0;32mI (8849) DISPLAY_TEST: Distance: 21.81 cm[0m
+[0;32mI (9049) DISPLAY_TEST: Distance: 22.69 cm[0m
+[0;32mI (9249) DISPLAY_TEST: Distance: 23.12 cm[0m
+[0;33mW (9479) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (9679) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (9849) DISPLAY_TEST: Distance: 23.43 cm[0m
+[0;33mW (10079) DISPLAY_TEST: Out of range or error[0m
+[1;31mE (10279) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (10279) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (10279) task_wdt: Tasks currently running:[0m
+[1;31mE (10279) task_wdt: CPU 0: main[0m
+[1;31mE (10279) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (10279) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400D9846:0x3FFB1050 0x400D9C18:0x3FFB1070 0x4008274D:0x3FFB10A0 0x40082341:0x3FFB41C0 0x4008234F:0x3FFB41E0 0x400D58B0:0x3FFB4200 0x400D5C3E:0x3FFB4220 0x400D387E:0x3FFB4260 0x400DD28D:0x3FFB4290
+
+[0;33mW (10309) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (10449) DISPLAY_TEST: Distance: 14.65 cm[0m
+[0;32mI (10649) DISPLAY_TEST: Distance: 8.87 cm[0m
+[0;32mI (10849) DISPLAY_TEST: Distance: 6.14 cm[0m
+[0;32mI (11049) DISPLAY_TEST: Distance: 6.95 cm[0m
+[0;32mI (11249) DISPLAY_TEST: Distance: 19.41 cm[0m
+[0;32mI (11449) DISPLAY_TEST: Distance: 7.85 cm[0m
+[0;32mI (11649) DISPLAY_TEST: Distance: 7.22 cm[0m
+[0;32mI (11849) DISPLAY_TEST: Distance: 6.17 cm[0m
+[0;32mI (12049) DISPLAY_TEST: Distance: 5.45 cm[0m
+[0;32mI (12249) DISPLAY_TEST: Distance: 4.94 cm[0m
+[0;32mI (12449) DISPLAY_TEST: Distance: 5.35 cm[0m
+[0;32mI (12649) DISPLAY_TEST: Distance: 4.89 cm[0m
+[0;32mI (12849) DISPLAY_TEST: Distance: 5.30 cm[0m
+[0;32mI (13049) DISPLAY_TEST: Distance: 5.20 cm[0m
+[0;32mI (13249) DISPLAY_TEST: Distance: 5.30 cm[0m
+[0;32mI (13449) DISPLAY_TEST: Distance: 4.99 cm[0m
+[0;32mI (13649) DISPLAY_TEST: Distance: 5.04 cm[0m
+[0;32mI (13849) DISPLAY_TEST: Distance: 5.04 cm[0m
+[0;32mI (14049) DISPLAY_TEST: Distance: 4.87 cm[0m
+[0;32mI (14249) DISPLAY_TEST: Distance: 4.42 cm[0m
+[0;32mI (14449) DISPLAY_TEST: Distance: 4.94 cm[0m
+[0;32mI (14649) DISPLAY_TEST: Distance: 5.04 cm[0m
+[0;32mI (14849) DISPLAY_TEST: Distance: 5.61 cm[0m
+[0;32mI (15049) DISPLAY_TEST: Distance: 5.61 cm[0m
+[0;32mI (15249) DISPLAY_TEST: Distance: 5.56 cm[0m
+[1;31mE (15279) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (15279) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (15279) task_wdt: Tasks currently running:[0m
+[1;31mE (15279) task_wdt: CPU 0: main[0m
+[1;31mE (15279) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (15279) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400D9846:0x3FFB1050 0x400D9C18:0x3FFB1070 0x4008274D:0x3FFB10A0 0x4000C04D:0x3FFB4180 0x400D57A7:0x3FFB41A0 0x400D57FA:0x3FFB41C0 0x400D5B3E:0x3FFB41E0 0x400D5B82:0x3FFB4220 0x400D387E:0x3FFB4260 0x400DD28D:0x3FFB4290
+
+[0;32mI (15449) DISPLAY_TEST: Distance: 4.61 cm[0m
+[0;32mI (15649) DISPLAY_TEST: Distance: 4.63 cm[0m
+[0;32mI (15849) DISPLAY_TEST: Distance: 4.63 cm[0m
+[0;32mI (16049) DISPLAY_TEST: Distance: 5.02 cm[0m
+[0;32mI (16249) DISPLAY_TEST: Distance: 4.97 cm[0m
+[0;32mI (16449) DISPLAY_TEST: Distance: 4.94 cm[0m
+[0;32mI (16649) DISPLAY_TEST: Distance: 4.05 cm[0m
+[0;32mI (16849) DISPLAY_TEST: Distance: 4.89 cm[0m
+[0;32mI (17049) DISPLAY_TEST: Distance: 5.35 cm[0m
+[0;32mI (17249) DISPLAY_TEST: Distance: 4.42 cm[0m
+[0;32mI (17449) DISPLAY_TEST: Distance: 4.37 cm[0m
+[0;32mI (17649) DISPLAY_TEST: Distance: 4.10 cm[0m
+[0;32mI (17849) DISPLAY_TEST: Distance: 4.89 cm[0m
+[0;32mI (18049) DISPLAY_TEST: Distance: 4.89 cm[0m
+[0;32mI (18249) DISPLAY_TEST: Distance: 4.73 cm[0m
+[0;32mI (18449) DISPLAY_TEST: Distance: 4.15 cm[0m
+[0;32mI (18649) DISPLAY_TEST: Distance: 4.85 cm[0m
+[0;32mI (18849) DISPLAY_TEST: Distance: 3.94 cm[0m
+[0;32mI (19049) DISPLAY_TEST: Distance: 4.72 cm[0m
+[0;32mI (19259) DISPLAY_TEST: Distance: 4.65 cm[0m
+[0;32mI (19459) DISPLAY_TEST: Distance: 4.12 cm[0m
+[0;32mI (19659) DISPLAY_TEST: Distance: 3.69 cm[0m
+[0;32mI (19859) DISPLAY_TEST: Distance: 4.89 cm[0m
+[0;32mI (20059) DISPLAY_TEST: Distance: 3.96 cm[0m
+[0;32mI (20259) DISPLAY_TEST: Distance: 3.89 cm[0m
+[1;31mE (20279) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (20279) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (20279) task_wdt: Tasks currently running:[0m
+[1;31mE (20279) task_wdt: CPU 0: main[0m
+[1;31mE (20279) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (20279) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400D9846:0x3FFB1050 0x400D9C18:0x3FFB1070 0x4008274D:0x3FFB10A0 0x40008541:0x3FFB4180 0x400D5798:0x3FFB41A0 0x400D57FA:0x3FFB41C0 0x400D5B3E:0x3FFB41E0 0x400D5B82:0x3FFB4220 0x400D387E:0x3FFB4260 0x400DD28D:0x3FFB4290
+
+[0;32mI (20459) DISPLAY_TEST: Distance: 3.94 cm[0m
+[0;32mI (20659) DISPLAY_TEST: Distance: 4.37 cm[0m
+[0;32mI (20859) DISPLAY_TEST: Distance: 4.25 cm[0m
+[0;32mI (21059) DISPLAY_TEST: Distance: 4.22 cm[0m
+[0;32mI (21259) DISPLAY_TEST: Distance: 3.72 cm[0m
+[0;32mI (21459) DISPLAY_TEST: Distance: 3.74 cm[0m
+[0;32mI (21659) DISPLAY_TEST: Distance: 3.74 cm[0m
+[0;32mI (21859) DISPLAY_TEST: Distance: 3.94 cm[0m
+[0;32mI (22059) DISPLAY_TEST: Distance: 4.66 cm[0m
+[0;32mI (22259) DISPLAY_TEST: Distance: 4.10 cm[0m
+[0;32mI (22459) DISPLAY_TEST: Distance: 3.74 cm[0m
+[0;32mI (22659) DISPLAY_TEST: Distance: 4.53 cm[0m
+[0;32mI (22859) DISPLAY_TEST: Distance: 4.58 cm[0m
+[0;32mI (23059) DISPLAY_TEST: Distance: 4.22 cm[0m
+[0;32mI (23259) DISPLAY_TEST: Distance: 4.72 cm[0m
+[0;32mI (23459) DISPLAY_TEST: Distance: 4.78 cm[0m
+[0;32mI (23659) DISPLAY_TEST: Distance: 4.05 cm[0m
+[0;32mI (23859) DISPLAY_TEST: Distance: 4.56 cm[0m
+[0;32mI (24059) DISPLAY_TEST: Distance: 5.18 cm[0m
+[0;32mI (24259) DISPLAY_TEST: Distance: 5.30 cm[0m
+[0;32mI (24459) DISPLAY_TEST: Distance: 5.90 cm[0m
+[0;32mI (24659) DISPLAY_TEST: Distance: 8.99 cm[0m
+[0;32mI (24859) DISPLAY_TEST: Distance: 9.14 cm[0m
+[0;32mI (25059) DISPLAY_TEST: Distance: 16.10 cm[0m
+[0;32mI (25259) DISPLAY_TEST: Distance: 16.62 cm[0m
+[1;31mE (25279) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (25279) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (25279) task_wdt: Tasks currently running:[0m
+[1;31mE (25279) task_wdt: CPU 0: main[0m
+[1;31mE (25279) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (25279) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400D9846:0x3FFB1050 0x400D9C18:0x3FFB1070 0x4008274D:0x3FFB10A0 0x40008544:0x3FFB4180 0x400D57A7:0x3FFB41A0 0x400D57FA:0x3FFB41C0 0x400D5B3E:0x3FFB41E0 0x400D5B82:0x3FFB4220 0x400D387E:0x3FFB4260 0x400DD28D:0x3FFB4290
+
+[0;32mI (25459) DISPLAY_TEST: Distance: 10.19 cm[0m
+[0;32mI (25659) DISPLAY_TEST: Distance: 7.84 cm[0m
+[0;32mI (25859) DISPLAY_TEST: Distance: 8.71 cm[0m
+[0;32mI (26059) DISPLAY_TEST: Distance: 7.43 cm[0m
+[0;32mI (26259) DISPLAY_TEST: Distance: 8.66 cm[0m
+[0;32mI (26459) DISPLAY_TEST: Distance: 7.85 cm[0m
+[0;32mI (26659) DISPLAY_TEST: Distance: 8.68 cm[0m
+[0;32mI (26859) DISPLAY_TEST: Distance: 7.77 cm[0m
+[0;32mI (27059) DISPLAY_TEST: Distance: 8.32 cm[0m
+[0;32mI (27259) DISPLAY_TEST: Distance: 9.04 cm[0m
+[0;32mI (27459) DISPLAY_TEST: Distance: 8.20 cm[0m
+[0;32mI (27659) DISPLAY_TEST: Distance: 7.84 cm[0m
+[0;32mI (27859) DISPLAY_TEST: Distance: 9.02 cm[0m
+[0;32mI (28059) DISPLAY_TEST: Distance: 8.30 cm[0m
+[0;32mI (28259) DISPLAY_TEST: Distance: 7.79 cm[0m
+[0;32mI (28459) DISPLAY_TEST: Distance: 8.32 cm[0m
+[0;32mI (28659) DISPLAY_TEST: Distance: 8.32 cm[0m
+[0;32mI (28859) DISPLAY_TEST: Distance: 9.24 cm[0m
+[0;32mI (29059) DISPLAY_TEST: Distance: 10.08 cm[0m
+[0;32mI (29259) DISPLAY_TEST: Distance: 7.89 cm[0m
+[0;32mI (29459) DISPLAY_TEST: Distance: 10.07 cm[0m
+[0;32mI (29659) DISPLAY_TEST: Distance: 12.26 cm[0m
+[0;32mI (29859) DISPLAY_TEST: Distance: 10.51 cm[0m
+[0;32mI (30059) DISPLAY_TEST: Distance: 10.50 cm[0m
+[0;32mI (30259) DISPLAY_TEST: Distance: 10.50 cm[0m
+[1;31mE (30279) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (30279) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (30279) task_wdt: Tasks currently running:[0m
+[1;31mE (30279) task_wdt: CPU 0: main[0m
+[1;31mE (30279) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (30279) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400D9846:0x3FFB1050 0x400D9C18:0x3FFB1070 0x4008274D:0x3FFB10A0 0x400D7CAD:0x3FFB4170 0x400D579F:0x3FFB41A0 0x400D57FA:0x3FFB41C0 0x400D5B3E:0x3FFB41E0 0x400D5B82:0x3FFB4220 0x400D387E:0x3FFB4260 0x400DD28D:0x3FFB4290
+
+[0;32mI (30459) DISPLAY_TEST: Distance: 9.66 cm[0m
+[0;32mI (30659) DISPLAY_TEST: Distance: 19.21 cm[0m
+[0;32mI (30859) DISPLAY_TEST: Distance: 17.92 cm[0m
+[0;32mI (31059) DISPLAY_TEST: Distance: 18.02 cm[0m
+[0;32mI (31259) DISPLAY_TEST: Distance: 18.49 cm[0m
+[0;32mI (31459) DISPLAY_TEST: Distance: 18.13 cm[0m
+[0;32mI (31659) DISPLAY_TEST: Distance: 18.64 cm[0m
+[0;32mI (31859) DISPLAY_TEST: Distance: 19.43 cm[0m
+[0;32mI (32059) DISPLAY_TEST: Distance: 17.24 cm[0m
+[0;32mI (32259) DISPLAY_TEST: Distance: 13.34 cm[0m
+[0;32mI (32459) DISPLAY_TEST: Distance: 10.44 cm[0m
+[0;32mI (32659) DISPLAY_TEST: Distance: 10.75 cm[0m
+[0;32mI (32859) DISPLAY_TEST: Distance: 11.63 cm[0m
+[0;32mI (33059) DISPLAY_TEST: Distance: 12.52 cm[0m
+[0;32mI (33259) DISPLAY_TEST: Distance: 12.01 cm[0m
+[0;32mI (33459) DISPLAY_TEST: Distance: 9.62 cm[0m
+[0;32mI (33659) DISPLAY_TEST: Distance: 17.70 cm[0m
+[0;32mI (33859) DISPLAY_TEST: Distance: 8.97 cm[0m
+[0;32mI (34059) DISPLAY_TEST: Distance: 7.91 cm[0m
+[0;32mI (34259) DISPLAY_TEST: Distance: 8.68 cm[0m
+[0;32mI (34459) DISPLAY_TEST: Distance: 9.60 cm[0m
+[0;32mI (34659) DISPLAY_TEST: Distance: 9.47 cm[0m
+[0;32mI (34859) DISPLAY_TEST: Distance: 9.86 cm[0m
+[0;32mI (35059) DISPLAY_TEST: Distance: 31.16 cm[0m
+[1;31mE (35279) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (35279) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (35279) task_wdt: Tasks currently running:[0m
+[1;31mE (35279) task_wdt: CPU 0: main[0m
+[1;31mE (35279) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (35279) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400D9846:0x3FFB1050 0x400D9C18:0x3FFB1070 0x4008274D:0x3FFB10A0 0x40082341:0x3FFB41C0 0x4008234F:0x3FFB41E0 0x400D58B0:0x3FFB4200 0x400D5C3E:0x3FFB4220 0x400D387E:0x3FFB4260 0x400DD28D:0x3FFB4290
+
+[0;33mW (35309) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (35489) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (35689) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (35869) DISPLAY_TEST: Distance: 174.40 cm[0m
+[0;33mW (36089) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (36259) DISPLAY_TEST: Distance: 39.74 cm[0m
+[0;32mI (36469) DISPLAY_TEST: Distance: 170.52 cm[0m
+[0;32mI (36659) DISPLAY_TEST: Distance: 19.16 cm[0m
+[0;32mI (36859) DISPLAY_TEST: Distance: 7.07 cm[0m
+[0;32mI (37059) DISPLAY_TEST: Distance: 19.33 cm[0m
+[0;32mI (37259) DISPLAY_TEST: Distance: 21.06 cm[0m
+[0;33mW (37489) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (37579) DISPLAY_TEST: Switched to mode: ADAPTIVE[0m
+[0;32mI (37579) DISPLAY_TEST: Button pressed! Mode changed.[0m
+[0;32mI (37669) DISPLAY_TEST: Distance: 93.59 cm[0m
+[0;32mI (37879) DISPLAY_TEST: Distance: 388.33 cm[0m
+[0;32mI (38009) DISPLAY_TEST: Switched to mode: INTEGER[0m
+[0;32mI (38009) DISPLAY_TEST: Button pressed! Mode changed.[0m
+[0;33mW (38089) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (38269) DISPLAY_TEST: Distance: 92.73 cm[0m
+[0;32mI (38359) DISPLAY_TEST: Switched to mode: STATIC[0m
+[0;32mI (38359) DISPLAY_TEST: Button pressed! Mode changed.[0m
+[0;32mI (38469) DISPLAY_TEST: Distance: 91.60 cm[0m
+[0;32mI (38669) DISPLAY_TEST: Distance: 110.91 cm[0m
+[0;32mI (38689) DISPLAY_TEST: Switched to mode: ADAPTIVE[0m
+[0;32mI (38689) DISPLAY_TEST: Button pressed! Mode changed.[0m
+[0;32mI (38869) DISPLAY_TEST: Distance: 105.30 cm[0m
+[0;32mI (39069) DISPLAY_TEST: Distance: 92.39 cm[0m
+[0;32mI (39109) DISPLAY_TEST: Switched to mode: INTEGER[0m
+[0;32mI (39109) DISPLAY_TEST: Button pressed! Mode changed.[0m
+[0;32mI (39269) DISPLAY_TEST: Distance: 107.92 cm[0m
+[0;32mI (39449) DISPLAY_TEST: Switched to mode: STATIC[0m
+[0;32mI (39449) DISPLAY_TEST: Button pressed! Mode changed.[0m
+[0;32mI (39469) DISPLAY_TEST: Distance: 106.90 cm[0m
+[0;32mI (39669) DISPLAY_TEST: Distance: 118.21 cm[0m
+[0;32mI (39789) DISPLAY_TEST: Switched to mode: ADAPTIVE[0m
+[0;32mI (39789) DISPLAY_TEST: Button pressed! Mode changed.[0m
+[0;32mI (39869) DISPLAY_TEST: Distance: 89.68 cm[0m
+[0;32mI (40069) DISPLAY_TEST: Distance: 102.39 cm[0m
+[0;32mI (40269) DISPLAY_TEST: Distance: 95.71 cm[0m
+[1;31mE (40279) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (40279) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (40279) task_wdt: Tasks currently running:[0m
+[1;31mE (40279) task_wdt: CPU 0: main[0m
+[1;31mE (40279) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (40279) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400D9846:0x3FFB1050 0x400D9C18:0x3FFB1070 0x4008274D:0x3FFB10A0 0x4000C04D:0x3FFB4180 0x400D5798:0x3FFB41A0 0x400D57FA:0x3FFB41C0 0x400D5B3E:0x3FFB41E0 0x400D5B82:0x3FFB4220 0x400D387E:0x3FFB4260 0x400DD28D:0x3FFB4290
+
+[0;32mI (40469) DISPLAY_TEST: Distance: 94.82 cm[0m
+[0;32mI (40669) DISPLAY_TEST: Distance: 90.07 cm[0m
+[0;32mI (40709) DISPLAY_TEST: Switched to mode: INTEGER[0m
+[0;32mI (40709) DISPLAY_TEST: Button pressed! Mode changed.[0m
+[0;32mI (40869) DISPLAY_TEST: Distance: 94.72 cm[0m
+[0;32mI (41059) DISPLAY_TEST: Switched to mode: STATIC[0m
+[0;32mI (41059) DISPLAY_TEST: Button pressed! Mode changed.[0m
+[0;32mI (41069) DISPLAY_TEST: Distance: 95.66 cm[0m
+[0;32mI (41269) DISPLAY_TEST: Distance: 93.16 cm[0m
+[0;32mI (41319) DISPLAY_TEST: Switched to mode: ADAPTIVE[0m
+[0;32mI (41319) DISPLAY_TEST: Button pressed! Mode changed.[0m
+[0;32mI (41469) DISPLAY_TEST: Distance: 91.00 cm[0m
+[0;32mI (41539) DISPLAY_TEST: Switched to mode: INTEGER[0m
+[0;32mI (41539) DISPLAY_TEST: Button pressed! Mode changed.[0m
+[0;32mI (41669) DISPLAY_TEST: Distance: 100.94 cm[0m
+[0;32mI (41869) DISPLAY_TEST: Distance: 91.84 cm[0m
+[0;32mI (41939) DISPLAY_TEST: Switched to mode: STATIC[0m
+[0;32mI (41939) DISPLAY_TEST: Button pressed! Mode changed.[0m
+[0;32mI (42069) DISPLAY_TEST: Distance: 92.94 cm[0m
+[0;33mW (42289) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (42479) DISPLAY_TEST: Distance: 193.42 cm[0m
+[0;32mI (42679) DISPLAY_TEST: Distance: 275.07 cm[0m
+[0;33mW (42889) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (43089) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (43269) DISPLAY_TEST: Distance: 106.12 cm[0m
+[0;32mI (43489) DISPLAY_TEST: Distance: 356.86 cm[0m
+[0;33mW (43699) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (43869) DISPLAY_TEST: Distance: 24.56 cm[0m
+[0;33mW (44099) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (44269) DISPLAY_TEST: Distance: 13.77 cm[0m
+[0;33mW (44499) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (44689) DISPLAY_TEST: Distance: 344.49 cm[0m
+[0;33mW (44899) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (45089) DISPLAY_TEST: Distance: 340.56 cm[0m
+[0;32mI (45269) DISPLAY_TEST: Distance: 16.52 cm[0m
+[1;31mE (45279) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (45279) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (45279) task_wdt: Tasks currently running:[0m
+[1;31mE (45279) task_wdt: CPU 0: main[0m
+[1;31mE (45279) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (45279) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400D9846:0x3FFB1050 0x400D9C18:0x3FFB1070 0x4008274D:0x3FFB10A0 0x40083A35:0x3FFB41A0 0x400DE26A:0x3FFB41C0 0x400D5B43:0x3FFB41E0 0x400D5B82:0x3FFB4220 0x400D387E:0x3FFB4260 0x400DD28D:0x3FFB4290
+
+[0;33mW (45499) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (45669) DISPLAY_TEST: Distance: 21.23 cm[0m
+[0;32mI (45869) DISPLAY_TEST: Distance: 19.84 cm[0m
+[0;32mI (46069) DISPLAY_TEST: Distance: 22.91 cm[0m
+[0;32mI (46269) DISPLAY_TEST: Distance: 20.32 cm[0m
+[0;32mI (46469) DISPLAY_TEST: Distance: 21.59 cm[0m
+[0;32mI (46669) DISPLAY_TEST: Distance: 22.02 cm[0m
+[0;32mI (46869) DISPLAY_TEST: Distance: 20.79 cm[0m
+[0;32mI (47069) DISPLAY_TEST: Distance: 20.31 cm[0m
+[0;32mI (47269) DISPLAY_TEST: Distance: 20.60 cm[0m
+[0;32mI (47469) DISPLAY_TEST: Distance: 23.19 cm[0m
+[0;32mI (47669) DISPLAY_TEST: Distance: 21.51 cm[0m
+[0;32mI (47869) DISPLAY_TEST: Distance: 22.40 cm[0m
+[0;32mI (48069) DISPLAY_TEST: Distance: 21.20 cm[0m
+[0;32mI (48269) DISPLAY_TEST: Distance: 21.56 cm[0m
+[0;32mI (48469) DISPLAY_TEST: Distance: 20.68 cm[0m
+[0;32mI (48669) DISPLAY_TEST: Distance: 20.48 cm[0m
+[0;32mI (48869) DISPLAY_TEST: Distance: 20.34 cm[0m
+[0;32mI (49069) DISPLAY_TEST: Distance: 20.41 cm[0m
+[0;32mI (49269) DISPLAY_TEST: Distance: 21.35 cm[0m
+[0;32mI (49469) DISPLAY_TEST: Distance: 22.00 cm[0m
+[0;32mI (49669) DISPLAY_TEST: Distance: 20.77 cm[0m
+[0;32mI (49869) DISPLAY_TEST: Distance: 20.34 cm[0m
+[0;32mI (50069) DISPLAY_TEST: Distance: 21.64 cm[0m
+[1;31mE (50279) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (50279) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (50279) task_wdt: Tasks currently running:[0m
+[1;31mE (50279) task_wdt: CPU 0: main[0m
+[1;31mE (50279) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (50279) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400D9846:0x3FFB1050 0x400D9C18:0x3FFB1070 0x4008274D:0x3FFB10A0 0x40082327:0x3FFB41C0 0x4008234F:0x3FFB41E0 0x400D58B0:0x3FFB4200 0x400D5C3E:0x3FFB4220 0x400D387E:0x3FFB4260 0x400DD28D:0x3FFB4290
+
+[0;33mW (50309) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (50469) DISPLAY_TEST: Distance: 23.72 cm[0m
+[0;32mI (50679) DISPLAY_TEST: Distance: 196.81 cm[0m
+[0;32mI (50869) DISPLAY_TEST: Distance: 22.91 cm[0m
+[0;32mI (51069) DISPLAY_TEST: Distance: 22.07 cm[0m
+[0;32mI (51279) DISPLAY_TEST: Distance: 116.83 cm[0m
+[0;32mI (51469) DISPLAY_TEST: Distance: 95.47 cm[0m
+[0;32mI (51669) DISPLAY_TEST: Distance: 97.57 cm[0m
+[0;32mI (51869) DISPLAY_TEST: Distance: 24.15 cm[0m
+[0;32mI (52069) DISPLAY_TEST: Distance: 93.79 cm[0m
+[0;32mI (52269) DISPLAY_TEST: Distance: 23.70 cm[0m
+[0;32mI (52469) DISPLAY_TEST: Distance: 24.99 cm[0m
+[0;32mI (52669) DISPLAY_TEST: Distance: 24.51 cm[0m
+[0;32mI (52879) DISPLAY_TEST: Distance: 93.54 cm[0m
+[0;32mI (53079) DISPLAY_TEST: Distance: 103.95 cm[0m
+[0;32mI (53269) DISPLAY_TEST: Distance: 21.59 cm[0m
+[0;32mI (53469) DISPLAY_TEST: Distance: 19.84 cm[0m
+[0;32mI (53669) DISPLAY_TEST: Distance: 22.66 cm[0m
+[0;32mI (53879) DISPLAY_TEST: Distance: 123.74 cm[0m
+[0;32mI (54069) DISPLAY_TEST: Distance: 22.79 cm[0m
+[0;32mI (54269) DISPLAY_TEST: Distance: 20.36 cm[0m
+[0;32mI (54469) DISPLAY_TEST: Distance: 20.79 cm[0m
+[0;32mI (54669) DISPLAY_TEST: Distance: 20.75 cm[0m
+[0;32mI (54869) DISPLAY_TEST: Distance: 20.37 cm[0m
+[0;32mI (55069) DISPLAY_TEST: Distance: 21.63 cm[0m
+[0;32mI (55269) DISPLAY_TEST: Distance: 20.72 cm[0m
+[1;31mE (55279) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (55279) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (55279) task_wdt: Tasks currently running:[0m
+[1;31mE (55279) task_wdt: CPU 0: main[0m
+[1;31mE (55279) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (55279) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400D9846:0x3FFB1050 0x400D9C18:0x3FFB1070 0x4008274D:0x3FFB10A0 0x400D7C85:0x3FFB41A0 0x400D57FD:0x3FFB41C0 0x400D5B3E:0x3FFB41E0 0x400D5B82:0x3FFB4220 0x400D387E:0x3FFB4260 0x400DD28D:0x3FFB4290
+
+[0;32mI (55469) DISPLAY_TEST: Distance: 21.15 cm[0m
+[0;32mI (55669) DISPLAY_TEST: Distance: 20.73 cm[0m
+[0;32mI (55869) DISPLAY_TEST: Distance: 21.15 cm[0m
+[0;32mI (56069) DISPLAY_TEST: Distance: 20.72 cm[0m
+[0;32mI (56269) DISPLAY_TEST: Distance: 21.15 cm[0m
+[0;32mI (56469) DISPLAY_TEST: Distance: 21.56 cm[0m
+[0;32mI (56669) DISPLAY_TEST: Distance: 21.57 cm[0m
+[0;32mI (56869) DISPLAY_TEST: Distance: 22.84 cm[0m
+[0;32mI (57069) DISPLAY_TEST: Distance: 23.29 cm[0m
+[0;32mI (57269) DISPLAY_TEST: Distance: 21.54 cm[0m
+[0;32mI (57469) DISPLAY_TEST: Distance: 21.03 cm[0m
+[0;32mI (57669) DISPLAY_TEST: Distance: 20.37 cm[0m
+[0;32mI (57869) DISPLAY_TEST: Distance: 23.26 cm[0m
+[0;32mI (58069) DISPLAY_TEST: Distance: 21.59 cm[0m
+[0;32mI (58269) DISPLAY_TEST: Distance: 22.45 cm[0m
+[0;32mI (58469) DISPLAY_TEST: Distance: 24.10 cm[0m
+[0;32mI (58669) DISPLAY_TEST: Distance: 24.95 cm[0m
+[0;32mI (58869) DISPLAY_TEST: Distance: 23.63 cm[0m
+[0;32mI (59069) DISPLAY_TEST: Distance: 21.56 cm[0m
+[0;33mW (59299) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (59469) DISPLAY_TEST: Distance: 23.68 cm[0m
+[0;32mI (59669) DISPLAY_TEST: Distance: 22.02 cm[0m
+[0;32mI (59869) DISPLAY_TEST: Distance: 22.43 cm[0m
+[0;32mI (60069) DISPLAY_TEST: Distance: 22.86 cm[0m
+[0;32mI (60269) DISPLAY_TEST: Distance: 22.86 cm[0m
+[1;31mE (60279) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (60279) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (60279) task_wdt: Tasks currently running:[0m
+[1;31mE (60279) task_wdt: CPU 0: main[0m
+[1;31mE (60279) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (60279) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400D9846:0x3FFB1050 0x400D9C18:0x3FFB1070 0x4008274D:0x3FFB10A0 0x4000853E:0x3FFB4180 0x400D5798:0x3FFB41A0 0x400D57FA:0x3FFB41C0 0x400D5B3E:0x3FFB41E0 0x400D5B82:0x3FFB4220 0x400D387E:0x3FFB4260 0x400DD28D:0x3FFB4290
+
+[0;32mI (60469) DISPLAY_TEST: Distance: 22.86 cm[0m
+[0;32mI (60669) DISPLAY_TEST: Distance: 22.43 cm[0m
+[0;32mI (60869) DISPLAY_TEST: Distance: 22.43 cm[0m
+[0;32mI (61069) DISPLAY_TEST: Distance: 22.86 cm[0m
+[0;32mI (61279) DISPLAY_TEST: Distance: 22.84 cm[0m
+[0;32mI (61479) DISPLAY_TEST: Distance: 22.84 cm[0m
+[0;32mI (61679) DISPLAY_TEST: Distance: 24.13 cm[0m
+[0;32mI (61879) DISPLAY_TEST: Distance: 22.84 cm[0m
+[0;32mI (62079) DISPLAY_TEST: Distance: 23.29 cm[0m
+[0;32mI (62279) DISPLAY_TEST: Distance: 22.43 cm[0m
+[0;32mI (62479) DISPLAY_TEST: Distance: 24.52 cm[0m
+[0;32mI (62679) DISPLAY_TEST: Distance: 22.45 cm[0m
+[0;32mI (62889) DISPLAY_TEST: Distance: 194.22 cm[0m
+[0;33mW (63099) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (63299) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (63499) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (63679) DISPLAY_TEST: Distance: 19.64 cm[0m
+[0;32mI (63879) DISPLAY_TEST: Distance: 25.81 cm[0m
+[0;32mI (64079) DISPLAY_TEST: Distance: 20.72 cm[0m
+[0;32mI (64279) DISPLAY_TEST: Distance: 22.84 cm[0m
+[0;32mI (64479) DISPLAY_TEST: Distance: 96.90 cm[0m
+[0;32mI (64679) DISPLAY_TEST: Distance: 22.81 cm[0m
+[0;32mI (64879) DISPLAY_TEST: Distance: 22.38 cm[0m
+[0;32mI (65079) DISPLAY_TEST: Distance: 21.99 cm[0m
+[1;31mE (65279) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (65279) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (65279) task_wdt: Tasks currently running:[0m
+[1;31mE (65279) task_wdt: CPU 0: main[0m
+[1;31mE (65279) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (65279) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400D9846:0x3FFB1050 0x400D9C18:0x3FFB1070 0x4008274D:0x3FFB10A0 0x400D58B8:0x3FFB4200 0x400D5C3E:0x3FFB4220 0x400D387E:0x3FFB4260 0x400DD28D:0x3FFB4290
+
+[0;33mW (65309) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (65509) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (65679) DISPLAY_TEST: Distance: 19.41 cm[0m
+[0;32mI (65879) DISPLAY_TEST: Distance: 22.38 cm[0m
+[0;32mI (66079) DISPLAY_TEST: Distance: 21.97 cm[0m
+[0;32mI (66289) DISPLAY_TEST: Distance: 161.16 cm[0m
+[0;33mW (66509) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (66709) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (66909) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (67099) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (67309) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (67509) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (67689) DISPLAY_TEST: Distance: 252.17 cm[0m
+[0;33mW (67909) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (68079) DISPLAY_TEST: Distance: 98.85 cm[0m
+[0;33mW (68309) DISPLAY_TEST: Out of range or error[0m
+[0;33mW (68509) DISPLAY_TEST: Out of range or error[0m
+[0;32mI (68679) DISPLAY_TEST: Distance: 21.09 cm[0m
+[0;32mI (68879) DISPLAY_TEST: Distance: 21.56 cm[0m

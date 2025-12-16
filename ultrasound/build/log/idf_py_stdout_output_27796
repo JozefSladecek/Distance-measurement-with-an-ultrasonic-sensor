@@ -1,0 +1,587 @@
+Command: /home/jozef/.espressif/python_env/idf6.1_py3.12_env/bin/python /home/jozef/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/ultrasound.elf /home/jozef/Desktop/SKOLA/5.semester/IMP/Projekt/ultrasound/build/bootloader/bootloader.elf -m '/home/jozef/.espressif/python_env/idf6.1_py3.12_env/bin/python' '/home/jozef/esp/esp-idf/tools/idf.py' '-p' '/dev/ttyUSB0'
+tropy source...
+[0;32mI (170) cpu_start: Multicore app[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6376
+load:0x40078000,len:15900
+ho 0 tail 12 room 4
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (29) boot: ESP-IDF v6.1-dev-1169-g0b8e7b0efa 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Dec 12 2025 18:45:48[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (32) boot: chip revision: v1.0[0m
+[0;32mI (35) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (53) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (79) boot: End of partition table[0m
+[0;32mI (82) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a33ch ( 41788) map[0m
+[0;32mI (104) esp_image: segment 1: paddr=0001a364 vaddr=3ffb0000 size=02624h (  9764) load[0m
+[0;32mI (108) esp_image: segment 2: paddr=0001c990 vaddr=40080000 size=03688h ( 13960) load[0m
+[0;32mI (114) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=0f97ch ( 63868) map[0m
+[0;32mI (138) esp_image: segment 4: paddr=0002f9a4 vaddr=40083688 size=07bb0h ( 31664) load[0m
+[0;32mI (152) esp_image: segment 5: paddr=0003755c vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (158) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (158) boot: Disabling RNG early entropy source...[0m
+[0;32mI (170) cpu_start: Multicore app[0m
+[0;32mI (178) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (178) cpu_start: Pro cpu start user code[0m
+[0;32mI (178) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (180) app_init: Application information:[0m
+[0;32mI (184) app_init: Project name:     ultrasound[0m
+[0;32mI (188) app_init: App version:      1[0m
+[0;32mI (191) app_init: Compile time:     Dec 12 2025 18:45:50[0m
+[0;32mI (196) app_init: ELF file SHA256:  60cdc6820...[0m
+[0;32mI (201) app_init: ESP-IDF:          v6.1-dev-1169-g0b8e7b0efa[0m
+[0;32mI (206) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (210) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (214) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (218) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (224) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (229) heap_init: At 3FFB2FA0 len 0002D060 (180 KiB): DRAM[0m
+[0;32mI (234) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (240) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (245) heap_init: At 4008B238 len 00014DC8 (83 KiB): IRAM[0m
+[0;32mI (252) spi_flash: detected chip: generic[0m
+[0;32mI (254) spi_flash: flash io: dio[0m
+[0;33mW (257) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (280) main_task: Calling app_main()[0m
+[0;32mI (280) ULTRASONIC_METER: === Ultrasonic Distance Meter (Multi-Task) ===[0m
+[0;32mI (280) ULTRASONIC_METER: Display initialized[0m
+[0;32mI (280) ULTRASONIC_METER: Button SW1 initialized with interrupt on GPIO 4[0m
+[0;32mI (290) ULTRASONIC_METER: Display task started[0m
+[0;32mI (300) ULTRASONIC_METER: Measurement task started[0m
+[0;32mI (310) ULTRASONIC_METER: All tasks created successfully[0m
+[0;32mI (310) main_task: Returned from app_main()[0m
+[0;32mI (310) ULTRASONIC_METER: Button task started[0m
+[0;32mI (450) ULTRASONIC_METER: Distance: 15.30 cm[0m
+[0;32mI (660) ULTRASONIC_METER: Distance: 17.42 cm[0m
+[0;32mI (860) ULTRASONIC_METER: Distance: 17.01 cm[0m
+[0;32mI (1060) ULTRASONIC_METER: Distance: 17.00 cm[0m
+[0;32mI (1260) ULTRASONIC_METER: Distance: 17.01 cm[0m
+[0;32mI (1460) ULTRASONIC_METER: Distance: 17.01 cm[0m
+[0;32mI (1660) ULTRASONIC_METER: Distance: 15.71 cm[0m
+[0;32mI (1860) ULTRASONIC_METER: Distance: 16.60 cm[0m
+[0;32mI (2060) ULTRASONIC_METER: Distance: 17.03 cm[0m
+[0;32mI (2260) ULTRASONIC_METER: Distance: 17.01 cm[0m
+[0;32mI (2460) ULTRASONIC_METER: Distance: 14.47 cm[0m
+[0;32mI (2660) ULTRASONIC_METER: Distance: 14.46 cm[0m
+[0;32mI (2860) ULTRASONIC_METER: Distance: 14.89 cm[0m
+[0;32mI (3060) ULTRASONIC_METER: Distance: 14.42 cm[0m
+[0;32mI (3260) ULTRASONIC_METER: Distance: 16.55 cm[0m
+[0;32mI (3460) ULTRASONIC_METER: Distance: 14.17 cm[0m
+[0;32mI (3660) ULTRASONIC_METER: Distance: 66.20 cm[0m
+[0;32mI (3860) ULTRASONIC_METER: Distance: 68.31 cm[0m
+[0;32mI (4060) ULTRASONIC_METER: Distance: 25.16 cm[0m
+[0;32mI (4260) ULTRASONIC_METER: Distance: 66.59 cm[0m
+[0;32mI (4460) ULTRASONIC_METER: Distance: 67.01 cm[0m
+[0;32mI (4660) ULTRASONIC_METER: Distance: 67.02 cm[0m
+[0;32mI (4860) ULTRASONIC_METER: Distance: 88.27 cm[0m
+[0;32mI (5060) ULTRASONIC_METER: Distance: 66.13 cm[0m
+[0;32mI (5260) ULTRASONIC_METER: Distance: 67.86 cm[0m
+[0;32mI (5460) ULTRASONIC_METER: Distance: 69.15 cm[0m
+[0;32mI (5660) ULTRASONIC_METER: Distance: 32.67 cm[0m
+[0;32mI (5860) ULTRASONIC_METER: Distance: 67.42 cm[0m
+[0;32mI (6060) ULTRASONIC_METER: Distance: 68.27 cm[0m
+[0;32mI (6260) ULTRASONIC_METER: Distance: 67.02 cm[0m
+[0;32mI (6460) ULTRASONIC_METER: Distance: 67.45 cm[0m
+[0;32mI (6660) ULTRASONIC_METER: Distance: 67.88 cm[0m
+[0;32mI (6860) ULTRASONIC_METER: Distance: 67.45 cm[0m
+[0;32mI (7060) ULTRASONIC_METER: Distance: 67.45 cm[0m
+[0;32mI (7260) ULTRASONIC_METER: Distance: 66.16 cm[0m
+[0;32mI (7460) ULTRASONIC_METER: Distance: 67.45 cm[0m
+[0;32mI (7660) ULTRASONIC_METER: Distance: 67.01 cm[0m
+[0;32mI (7870) ULTRASONIC_METER: Distance: 253.10 cm[0m
+[0;32mI (8060) ULTRASONIC_METER: Distance: 67.88 cm[0m
+[0;32mI (8260) ULTRASONIC_METER: Distance: 66.18 cm[0m
+[0;32mI (8460) ULTRASONIC_METER: Distance: 66.63 cm[0m
+[0;32mI (8660) ULTRASONIC_METER: Distance: 67.06 cm[0m
+[0;32mI (8860) ULTRASONIC_METER: Distance: 66.83 cm[0m
+[0;32mI (9060) ULTRASONIC_METER: Distance: 68.12 cm[0m
+[0;32mI (9260) ULTRASONIC_METER: Distance: 68.57 cm[0m
+[0;32mI (9460) ULTRASONIC_METER: Distance: 67.28 cm[0m
+[0;32mI (9660) ULTRASONIC_METER: Distance: 66.40 cm[0m
+[0;32mI (9860) ULTRASONIC_METER: Distance: 67.76 cm[0m
+[0;32mI (10060) ULTRASONIC_METER: Distance: 67.74 cm[0m
+[0;32mI (10260) ULTRASONIC_METER: Distance: 67.76 cm[0m
+[0;32mI (10460) ULTRASONIC_METER: Distance: 67.35 cm[0m
+[0;32mI (10660) ULTRASONIC_METER: Distance: 67.79 cm[0m
+[0;32mI (10860) ULTRASONIC_METER: Distance: 67.78 cm[0m
+[0;32mI (11060) ULTRASONIC_METER: Distance: 66.51 cm[0m
+[0;32mI (11260) ULTRASONIC_METER: Distance: 67.37 cm[0m
+[0;32mI (11460) ULTRASONIC_METER: Distance: 67.35 cm[0m
+[0;32mI (11660) ULTRASONIC_METER: Distance: 67.79 cm[0m
+[0;32mI (11860) ULTRASONIC_METER: Distance: 67.37 cm[0m
+[0;32mI (11910) ULTRASONIC_METER: ENTERING history [0][0m
+[0;32mI (12060) ULTRASONIC_METER: Distance: 67.79 cm[0m
+[0;32mI (12260) ULTRASONIC_METER: Distance: 66.90 cm[0m
+[0;32mI (12460) ULTRASONIC_METER: Distance: 67.37 cm[0m
+[0;32mI (12660) ULTRASONIC_METER: Distance: 67.37 cm[0m
+[0;32mI (12750) ULTRASONIC_METER: History [1][0m
+[0;32mI (12860) ULTRASONIC_METER: Distance: 66.90 cm[0m
+[0;32mI (13060) ULTRASONIC_METER: Distance: 67.35 cm[0m
+[0;32mI (13190) ULTRASONIC_METER: History [2][0m
+[0;32mI (13260) ULTRASONIC_METER: Distance: 67.78 cm[0m
+[0;32mI (13460) ULTRASONIC_METER: Distance: 67.78 cm[0m
+[0;32mI (13570) ULTRASONIC_METER: History [3][0m
+[0;32mI (13660) ULTRASONIC_METER: Distance: 66.89 cm[0m
+[0;32mI (13860) ULTRASONIC_METER: Distance: 67.33 cm[0m
+[0;32mI (14060) ULTRASONIC_METER: Distance: 66.47 cm[0m
+[0;32mI (14260) ULTRASONIC_METER: Distance: 67.74 cm[0m
+[0;32mI (14460) ULTRASONIC_METER: Distance: 67.74 cm[0m
+[0;32mI (14660) ULTRASONIC_METER: Distance: 67.76 cm[0m
+[0;32mI (14850) ULTRASONIC_METER: EXITING history[0m
+[0;32mI (14860) ULTRASONIC_METER: Distance: 68.62 cm[0m
+[0;32mI (15060) ULTRASONIC_METER: Distance: 66.89 cm[0m
+[0;32mI (15260) ULTRASONIC_METER: Distance: 68.19 cm[0m
+[0;32mI (15460) ULTRASONIC_METER: Distance: 66.46 cm[0m
+[0;32mI (15660) ULTRASONIC_METER: Distance: 67.74 cm[0m
+[0;32mI (15860) ULTRASONIC_METER: Distance: 67.33 cm[0m
+[0;32mI (16060) ULTRASONIC_METER: Distance: 66.49 cm[0m
+[0;32mI (16260) ULTRASONIC_METER: Distance: 67.74 cm[0m
+[0;32mI (16460) ULTRASONIC_METER: Distance: 68.15 cm[0m
+[0;32mI (16660) ULTRASONIC_METER: Distance: 69.49 cm[0m
+[0;32mI (16860) ULTRASONIC_METER: Distance: 66.49 cm[0m
+[0;32mI (17060) ULTRASONIC_METER: Distance: 66.90 cm[0m
+[0;32mI (17260) ULTRASONIC_METER: Distance: 67.31 cm[0m
+[0;32mI (17310) ULTRASONIC_METER: Saved to history: 67.31 cm[0m
+[0;32mI (17310) ULTRASONIC_METER: FROZEN at 67.31 cm[0m
+[0;32mI (17460) ULTRASONIC_METER: Distance: 66.46 cm[0m
+[0;32mI (17660) ULTRASONIC_METER: Distance: 66.87 cm[0m
+[0;32mI (17860) ULTRASONIC_METER: Distance: 67.33 cm[0m
+[0;32mI (18060) ULTRASONIC_METER: Distance: 66.89 cm[0m
+[0;32mI (18260) ULTRASONIC_METER: Distance: 67.31 cm[0m
+[0;32mI (18460) ULTRASONIC_METER: Distance: 67.33 cm[0m
+[0;32mI (18660) ULTRASONIC_METER: Distance: 66.87 cm[0m
+[0;32mI (18860) ULTRASONIC_METER: Distance: 68.17 cm[0m
+[0;32mI (19060) ULTRASONIC_METER: Distance: 66.89 cm[0m
+[0;32mI (19210) ULTRASONIC_METER: UNFROZEN[0m
+[0;32mI (19260) ULTRASONIC_METER: Distance: 67.76 cm[0m
+[0;32mI (19460) ULTRASONIC_METER: Distance: 68.19 cm[0m
+[0;32mI (19660) ULTRASONIC_METER: Distance: 67.35 cm[0m
+[0;32mI (19860) ULTRASONIC_METER: Distance: 67.33 cm[0m
+[0;32mI (20060) ULTRASONIC_METER: Distance: 68.17 cm[0m
+[0;32mI (20260) ULTRASONIC_METER: Distance: 66.92 cm[0m
+[0;32mI (20460) ULTRASONIC_METER: Distance: 66.04 cm[0m
+[0;32mI (20590) ULTRASONIC_METER: Saved to history: 66.04 cm[0m
+[0;32mI (20590) ULTRASONIC_METER: FROZEN at 66.04 cm[0m
+[0;32mI (20660) ULTRASONIC_METER: Distance: 66.49 cm[0m
+[0;32mI (20860) ULTRASONIC_METER: Distance: 66.90 cm[0m
+[0;32mI (21060) ULTRASONIC_METER: Distance: 67.35 cm[0m
+[0;32mI (21260) ULTRASONIC_METER: Distance: 68.21 cm[0m
+[0;32mI (21270) ULTRASONIC_METER: UNFROZEN[0m
+[0;32mI (21460) ULTRASONIC_METER: Distance: 68.60 cm[0m
+[0;32mI (21660) ULTRASONIC_METER: Distance: 68.63 cm[0m
+[0;32mI (21860) ULTRASONIC_METER: Distance: 66.92 cm[0m
+[0;32mI (22060) ULTRASONIC_METER: Distance: 66.92 cm[0m
+[0;32mI (22260) ULTRASONIC_METER: Distance: 67.79 cm[0m
+[0;32mI (22460) ULTRASONIC_METER: Distance: 69.06 cm[0m
+[0;32mI (22660) ULTRASONIC_METER: Distance: 66.51 cm[0m
+[0;32mI (22860) ULTRASONIC_METER: Distance: 67.78 cm[0m
+[0;33mW (23090) ULTRASONIC_METER: Out of range or error[0m
+[0;32mI (23260) ULTRASONIC_METER: Distance: 67.78 cm[0m
+[0;33mW (23490) ULTRASONIC_METER: Out of range or error[0m
+[0;32mI (23660) ULTRASONIC_METER: Distance: 66.92 cm[0m
+[0;32mI (23860) ULTRASONIC_METER: Distance: 67.78 cm[0m
+[0;32mI (24060) ULTRASONIC_METER: Distance: 135.55 cm[0m
+[0;32mI (24260) ULTRASONIC_METER: Distance: 11.88 cm[0m
+[0;32mI (24460) ULTRASONIC_METER: Distance: 8.15 cm[0m
+[0;32mI (24660) ULTRASONIC_METER: Distance: 5.56 cm[0m
+[0;32mI (24860) ULTRASONIC_METER: Distance: 4.87 cm[0m
+[0;32mI (25060) ULTRASONIC_METER: Distance: 4.97 cm[0m
+[0;32mI (25260) ULTRASONIC_METER: Distance: 5.92 cm[0m
+[0;32mI (25460) ULTRASONIC_METER: Distance: 5.04 cm[0m
+[0;32mI (25660) ULTRASONIC_METER: Distance: 5.02 cm[0m
+[0;32mI (25860) ULTRASONIC_METER: Distance: 5.02 cm[0m
+[0;32mI (26060) ULTRASONIC_METER: Distance: 5.92 cm[0m
+[0;32mI (26110) ULTRASONIC_METER: Saved to history: 5.92 cm[0m
+[0;32mI (26110) ULTRASONIC_METER: FROZEN at 5.92 cm[0m
+[0;32mI (26260) ULTRASONIC_METER: Distance: 5.44 cm[0m
+[0;32mI (26460) ULTRASONIC_METER: Distance: 5.04 cm[0m
+[0;32mI (26660) ULTRASONIC_METER: Distance: 5.90 cm[0m
+[0;32mI (26860) ULTRASONIC_METER: Distance: 5.02 cm[0m
+[0;32mI (27060) ULTRASONIC_METER: Distance: 5.02 cm[0m
+[0;32mI (27260) ULTRASONIC_METER: Distance: 5.95 cm[0m
+[0;32mI (27460) ULTRASONIC_METER: Distance: 6.43 cm[0m
+[0;32mI (27660) ULTRASONIC_METER: Distance: 5.54 cm[0m
+[0;32mI (27860) ULTRASONIC_METER: Distance: 6.50 cm[0m
+[0;32mI (28060) ULTRASONIC_METER: Distance: 5.59 cm[0m
+[0;32mI (28260) ULTRASONIC_METER: Distance: 6.07 cm[0m
+[0;32mI (28460) ULTRASONIC_METER: Distance: 6.07 cm[0m
+[0;32mI (28660) ULTRASONIC_METER: Distance: 6.05 cm[0m
+[0;32mI (28860) ULTRASONIC_METER: Distance: 5.61 cm[0m
+[0;32mI (29060) ULTRASONIC_METER: Distance: 5.61 cm[0m
+[0;32mI (29260) ULTRASONIC_METER: Distance: 5.61 cm[0m
+[0;32mI (29350) ULTRASONIC_METER: ENTERING history [0][0m
+[0;32mI (29460) ULTRASONIC_METER: Distance: 5.61 cm[0m
+[0;32mI (29660) ULTRASONIC_METER: Distance: 5.59 cm[0m
+[0;32mI (29860) ULTRASONIC_METER: Distance: 6.07 cm[0m
+[0;32mI (30060) ULTRASONIC_METER: Distance: 6.53 cm[0m
+[0;32mI (30260) ULTRASONIC_METER: Distance: 6.53 cm[0m
+[0;32mI (30460) ULTRASONIC_METER: Distance: 5.64 cm[0m
+[0;32mI (30660) ULTRASONIC_METER: Distance: 5.66 cm[0m
+[0;32mI (30860) ULTRASONIC_METER: Distance: 5.66 cm[0m
+[0;32mI (31060) ULTRASONIC_METER: Distance: 6.12 cm[0m
+[0;32mI (31260) ULTRASONIC_METER: Distance: 6.12 cm[0m
+[0;32mI (31460) ULTRASONIC_METER: Distance: 6.89 cm[0m
+[0;32mI (31590) ULTRASONIC_METER: EXITING history[0m
+[0;32mI (31660) ULTRASONIC_METER: Distance: 67.35 cm[0m
+[0;32mI (31860) ULTRASONIC_METER: Distance: 66.49 cm[0m
+[0;32mI (32060) ULTRASONIC_METER: Distance: 67.35 cm[0m
+[0;32mI (32260) ULTRASONIC_METER: Distance: 67.81 cm[0m
+[0;32mI (32460) ULTRASONIC_METER: Distance: 66.95 cm[0m
+[0;32mI (32660) ULTRASONIC_METER: Distance: 67.78 cm[0m
+[0;32mI (32860) ULTRASONIC_METER: Distance: 66.92 cm[0m
+[0;32mI (33060) ULTRASONIC_METER: Distance: 67.37 cm[0m
+[0;32mI (33260) ULTRASONIC_METER: Distance: 67.35 cm[0m
+[0;32mI (33460) ULTRASONIC_METER: Distance: 66.47 cm[0m
+[0;32mI (33660) ULTRASONIC_METER: Distance: 66.92 cm[0m
+[0;32mI (33860) ULTRASONIC_METER: Distance: 67.33 cm[0m
+[0;32mI (34060) ULTRASONIC_METER: Distance: 67.78 cm[0m
+[0;32mI (34260) ULTRASONIC_METER: Distance: 67.33 cm[0m
+[0;32mI (34460) ULTRASONIC_METER: Distance: 66.90 cm[0m
+[0;32mI (34660) ULTRASONIC_METER: Distance: 66.92 cm[0m
+[0;32mI (34690) ULTRASONIC_METER: UNFROZEN[0m
+[0;32mI (34860) ULTRASONIC_METER: Distance: 66.92 cm[0m
+[0;32mI (35060) ULTRASONIC_METER: Distance: 66.47 cm[0m
+[0;32mI (35260) ULTRASONIC_METER: Distance: 66.92 cm[0m
+[0;32mI (35460) ULTRASONIC_METER: Distance: 67.78 cm[0m
+[0;32mI (35660) ULTRASONIC_METER: Distance: 66.52 cm[0m
+[0;32mI (35860) ULTRASONIC_METER: Distance: 67.81 cm[0m
+[0;32mI (36060) ULTRASONIC_METER: Distance: 66.54 cm[0m
+[0;32mI (36260) ULTRASONIC_METER: Distance: 67.81 cm[0m
+[0;32mI (36460) ULTRASONIC_METER: Distance: 67.81 cm[0m
+[0;32mI (36660) ULTRASONIC_METER: Distance: 67.81 cm[0m
+[0;32mI (36860) ULTRASONIC_METER: Distance: 67.83 cm[0m
+[0;32mI (37060) ULTRASONIC_METER: Distance: 66.54 cm[0m
+[0;32mI (37260) ULTRASONIC_METER: Distance: 66.56 cm[0m
+[0;32mI (37460) ULTRASONIC_METER: Distance: 66.56 cm[0m
+[0;32mI (37660) ULTRASONIC_METER: Distance: 66.99 cm[0m
+[0;32mI (37710) ULTRASONIC_METER: ENTERING history [0][0m
+[0;32mI (37860) ULTRASONIC_METER: Distance: 67.38 cm[0m
+[0;32mI (38060) ULTRASONIC_METER: Distance: 68.24 cm[0m
+[0;32mI (38260) ULTRASONIC_METER: Distance: 67.83 cm[0m
+[0;32mI (38460) ULTRASONIC_METER: Distance: 68.24 cm[0m
+[0;32mI (38470) ULTRASONIC_METER: History [1][0m
+[0;32mI (38660) ULTRASONIC_METER: Distance: 67.40 cm[0m
+[0;32mI (38860) ULTRASONIC_METER: Distance: 67.83 cm[0m
+[0;32mI (38910) ULTRASONIC_METER: History [2][0m
+[0;32mI (39060) ULTRASONIC_METER: Distance: 66.52 cm[0m
+[0;32mI (39230) ULTRASONIC_METER: History [3][0m
+[0;32mI (39260) ULTRASONIC_METER: Distance: 66.94 cm[0m
+[0;32mI (39460) ULTRASONIC_METER: Distance: 66.95 cm[0m
+[0;32mI (39660) ULTRASONIC_METER: Distance: 66.97 cm[0m
+[0;32mI (39810) ULTRASONIC_METER: History [0][0m
+[0;32mI (39860) ULTRASONIC_METER: Distance: 66.56 cm[0m
+[0;32mI (40060) ULTRASONIC_METER: Distance: 67.40 cm[0m
+[0;32mI (40130) ULTRASONIC_METER: History [1][0m
+[0;32mI (40260) ULTRASONIC_METER: Distance: 68.24 cm[0m
+[0;32mI (40410) ULTRASONIC_METER: History [2][0m
+[0;32mI (40460) ULTRASONIC_METER: Distance: 67.79 cm[0m
+[0;32mI (40660) ULTRASONIC_METER: Distance: 66.95 cm[0m
+[0;32mI (40860) ULTRASONIC_METER: Distance: 67.81 cm[0m
+[0;32mI (41060) ULTRASONIC_METER: Distance: 66.54 cm[0m
+[0;32mI (41130) ULTRASONIC_METER: History [3][0m
+[0;32mI (41260) ULTRASONIC_METER: Distance: 66.54 cm[0m
+[0;32mI (41460) ULTRASONIC_METER: Distance: 67.83 cm[0m
+[0;32mI (41660) ULTRASONIC_METER: Distance: 66.54 cm[0m
+[0;32mI (41860) ULTRASONIC_METER: Distance: 66.95 cm[0m
+[0;32mI (42030) ULTRASONIC_METER: Cannot freeze in history view[0m
+[0;32mI (42060) ULTRASONIC_METER: Distance: 67.81 cm[0m
+[0;32mI (42260) ULTRASONIC_METER: Distance: 67.40 cm[0m
+[0;32mI (42460) ULTRASONIC_METER: Distance: 67.79 cm[0m
+[0;32mI (42660) ULTRASONIC_METER: Distance: 67.37 cm[0m
+[0;32mI (42860) ULTRASONIC_METER: Distance: 66.56 cm[0m
+[0;32mI (43060) ULTRASONIC_METER: Distance: 67.81 cm[0m
+[0;32mI (43260) ULTRASONIC_METER: Distance: 66.94 cm[0m
+[0;32mI (43460) ULTRASONIC_METER: Distance: 66.51 cm[0m
+[0;32mI (43660) ULTRASONIC_METER: Distance: 67.78 cm[0m
+[0;32mI (43860) ULTRASONIC_METER: Distance: 67.37 cm[0m
+[0;32mI (44060) ULTRASONIC_METER: Distance: 66.52 cm[0m
+[0;32mI (44260) ULTRASONIC_METER: Distance: 67.79 cm[0m
+[0;32mI (44460) ULTRASONIC_METER: Distance: 67.38 cm[0m
+[0;32mI (44660) ULTRASONIC_METER: Distance: 67.83 cm[0m
+[0;32mI (44860) ULTRASONIC_METER: Distance: 66.97 cm[0m
+[0;32mI (45060) ULTRASONIC_METER: Distance: 67.38 cm[0m
+[0;32mI (45260) ULTRASONIC_METER: Distance: 67.79 cm[0m
+[0;32mI (45460) ULTRASONIC_METER: Distance: 66.95 cm[0m
+[0;32mI (45660) ULTRASONIC_METER: Distance: 67.37 cm[0m
+[0;32mI (45860) ULTRASONIC_METER: Distance: 66.06 cm[0m
+[0;32mI (46060) ULTRASONIC_METER: Distance: 66.97 cm[0m
+[0;32mI (46260) ULTRASONIC_METER: Distance: 67.81 cm[0m
+[0;32mI (46460) ULTRASONIC_METER: Distance: 66.95 cm[0m
+[0;32mI (46660) ULTRASONIC_METER: Distance: 66.92 cm[0m
+[0;32mI (46860) ULTRASONIC_METER: Distance: 66.97 cm[0m
+[0;32mI (47060) ULTRASONIC_METER: Distance: 66.52 cm[0m
+[0;32mI (47110) ULTRASONIC_METER: EXITING history[0m
+[0;32mI (47260) ULTRASONIC_METER: Distance: 67.38 cm[0m
+[0;32mI (47460) ULTRASONIC_METER: Distance: 67.83 cm[0m
+[0;32mI (47660) ULTRASONIC_METER: Distance: 66.95 cm[0m
+[0;32mI (47860) ULTRASONIC_METER: Distance: 66.97 cm[0m
+[0;32mI (48060) ULTRASONIC_METER: Distance: 67.38 cm[0m
+[0;32mI (48260) ULTRASONIC_METER: Distance: 66.52 cm[0m
+[0;32mI (48460) ULTRASONIC_METER: Distance: 69.53 cm[0m
+[0;32mI (48660) ULTRASONIC_METER: Distance: 62.75 cm[0m
+[0;32mI (48860) ULTRASONIC_METER: Distance: 66.94 cm[0m
+[0;32mI (49060) ULTRASONIC_METER: Distance: 66.92 cm[0m
+[0;32mI (49260) ULTRASONIC_METER: Distance: 67.81 cm[0m
+[0;32mI (49460) ULTRASONIC_METER: Distance: 67.37 cm[0m
+[0;32mI (49660) ULTRASONIC_METER: Distance: 31.83 cm[0m
+[0;32mI (49860) ULTRASONIC_METER: Distance: 19.47 cm[0m
+[0;32mI (50060) ULTRASONIC_METER: Distance: 16.48 cm[0m
+[0;32mI (50260) ULTRASONIC_METER: Distance: 15.06 cm[0m
+[0;32mI (50460) ULTRASONIC_METER: Distance: 12.69 cm[0m
+[0;32mI (50660) ULTRASONIC_METER: Distance: 12.85 cm[0m
+[0;32mI (50860) ULTRASONIC_METER: Distance: 86.92 cm[0m
+[0;32mI (51060) ULTRASONIC_METER: Distance: 16.48 cm[0m
+[0;32mI (51260) ULTRASONIC_METER: Distance: 16.09 cm[0m
+[0;32mI (51460) ULTRASONIC_METER: Distance: 14.71 cm[0m
+[0;32mI (51660) ULTRASONIC_METER: Distance: 13.22 cm[0m
+[0;32mI (51860) ULTRASONIC_METER: Distance: 13.22 cm[0m
+[0;32mI (52060) ULTRASONIC_METER: Distance: 13.17 cm[0m
+[0;32mI (52260) ULTRASONIC_METER: Distance: 18.37 cm[0m
+[0;32mI (52460) ULTRASONIC_METER: Distance: 66.87 cm[0m
+[0;32mI (52660) ULTRASONIC_METER: Distance: 68.57 cm[0m
+[0;32mI (52860) ULTRASONIC_METER: Distance: 69.46 cm[0m
+[0;32mI (53060) ULTRASONIC_METER: Distance: 34.93 cm[0m
+[0;32mI (53260) ULTRASONIC_METER: Distance: 33.96 cm[0m
+[0;32mI (53460) ULTRASONIC_METER: Distance: 32.86 cm[0m
+[0;32mI (53660) ULTRASONIC_METER: Distance: 68.17 cm[0m
+[0;32mI (53860) ULTRASONIC_METER: Distance: 33.36 cm[0m
+[0;32mI (54060) ULTRASONIC_METER: Distance: 32.50 cm[0m
+[0;32mI (54260) ULTRASONIC_METER: Distance: 35.53 cm[0m
+[0;32mI (54460) ULTRASONIC_METER: Distance: 35.36 cm[0m
+[0;32mI (54660) ULTRASONIC_METER: Distance: 34.27 cm[0m
+[0;32mI (54860) ULTRASONIC_METER: Distance: 34.93 cm[0m
+[0;32mI (55060) ULTRASONIC_METER: Distance: 37.46 cm[0m
+[0;32mI (55260) ULTRASONIC_METER: Distance: 67.78 cm[0m
+[0;32mI (55460) ULTRASONIC_METER: Distance: 35.86 cm[0m
+[0;32mI (55660) ULTRASONIC_METER: Distance: 34.90 cm[0m
+[0;32mI (55860) ULTRASONIC_METER: Distance: 34.71 cm[0m
+[0;32mI (56070) ULTRASONIC_METER: Distance: 69.03 cm[0m
+[0;32mI (56270) ULTRASONIC_METER: Distance: 32.60 cm[0m
+[0;32mI (56470) ULTRASONIC_METER: Distance: 38.23 cm[0m
+[0;32mI (56670) ULTRASONIC_METER: Distance: 68.17 cm[0m
+[0;32mI (56870) ULTRASONIC_METER: Distance: 30.34 cm[0m
+[0;32mI (57070) ULTRASONIC_METER: Distance: 26.74 cm[0m
+[0;32mI (57270) ULTRASONIC_METER: Distance: 27.94 cm[0m
+[0;32mI (57470) ULTRASONIC_METER: Distance: 25.57 cm[0m
+[0;32mI (57670) ULTRASONIC_METER: Distance: 17.12 cm[0m
+[0;32mI (57870) ULTRASONIC_METER: Distance: 13.75 cm[0m
+[0;32mI (58070) ULTRASONIC_METER: Distance: 20.56 cm[0m
+[0;32mI (58270) ULTRASONIC_METER: Distance: 15.06 cm[0m
+[0;32mI (58470) ULTRASONIC_METER: Distance: 17.89 cm[0m
+[0;32mI (58670) ULTRASONIC_METER: Distance: 67.31 cm[0m
+[0;32mI (58870) ULTRASONIC_METER: Distance: 67.35 cm[0m
+[0;32mI (59070) ULTRASONIC_METER: Distance: 67.31 cm[0m
+[0;32mI (59280) ULTRASONIC_METER: Distance: 67.76 cm[0m
+[0;32mI (59480) ULTRASONIC_METER: Distance: 66.06 cm[0m
+[0;32mI (59680) ULTRASONIC_METER: Distance: 68.21 cm[0m
+[0;32mI (59880) ULTRASONIC_METER: Distance: 66.92 cm[0m
+[0;32mI (60080) ULTRASONIC_METER: Distance: 68.22 cm[0m
+[0;32mI (60280) ULTRASONIC_METER: Distance: 66.95 cm[0m
+[0;32mI (60480) ULTRASONIC_METER: Distance: 66.95 cm[0m
+[0;32mI (60680) ULTRASONIC_METER: Distance: 67.81 cm[0m
+[0;32mI (60880) ULTRASONIC_METER: Distance: 66.95 cm[0m
+[0;32mI (61080) ULTRASONIC_METER: Distance: 67.38 cm[0m
+[0;32mI (61280) ULTRASONIC_METER: Distance: 67.38 cm[0m
+[0;32mI (61480) ULTRASONIC_METER: Distance: 67.83 cm[0m
+[0;32mI (61680) ULTRASONIC_METER: Distance: 66.54 cm[0m
+[0;32mI (61880) ULTRASONIC_METER: Distance: 66.97 cm[0m
+[0;32mI (62080) ULTRASONIC_METER: Distance: 67.83 cm[0m
+[0;32mI (62280) ULTRASONIC_METER: Distance: 95.01 cm[0m
+[0;32mI (62480) ULTRASONIC_METER: Distance: 15.97 cm[0m
+[0;32mI (62680) ULTRASONIC_METER: Distance: 6.95 cm[0m
+[0;32mI (62880) ULTRASONIC_METER: Distance: 21.13 cm[0m
+[0;32mI (63080) ULTRASONIC_METER: Distance: 6.81 cm[0m
+[0;32mI (63280) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (63480) ULTRASONIC_METER: Distance: 5.49 cm[0m
+[0;32mI (63680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (63880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (64080) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (64280) ULTRASONIC_METER: Distance: 5.49 cm[0m
+[0;32mI (64480) ULTRASONIC_METER: Distance: 6.40 cm[0m
+[0;32mI (64680) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (64880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (65080) ULTRASONIC_METER: Distance: 6.40 cm[0m
+[0;32mI (65280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (65480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (65680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (65880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (66080) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (66280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (66480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (66680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (66880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (67080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (67280) ULTRASONIC_METER: Distance: 6.40 cm[0m
+[0;32mI (67480) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (67680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (67880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (68080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (68280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (68480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (68680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (68880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (69080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (69280) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (69480) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (69680) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (69880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (70080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (70280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (70480) ULTRASONIC_METER: Distance: 6.36 cm[0m
+[0;32mI (70680) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (70880) ULTRASONIC_METER: Distance: 6.36 cm[0m
+[0;32mI (71080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (71280) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (71480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (71680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (71880) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (72080) ULTRASONIC_METER: Distance: 6.36 cm[0m
+[0;32mI (72280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (72480) ULTRASONIC_METER: Distance: 6.40 cm[0m
+[0;32mI (72680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (72880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (73080) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (73280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (73480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (73680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (73880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (74080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (74280) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (74480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (74680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (74880) ULTRASONIC_METER: Distance: 6.40 cm[0m
+[0;32mI (75080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (75280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (75480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (75680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (75880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (76080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (76280) ULTRASONIC_METER: Distance: 5.49 cm[0m
+[0;32mI (76480) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (76680) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (76880) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (77080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (77280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (77480) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (77680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (77880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (78080) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (78280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (78480) ULTRASONIC_METER: Distance: 6.36 cm[0m
+[0;32mI (78680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (78880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (79080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (79280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (79480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (79680) ULTRASONIC_METER: Distance: 6.36 cm[0m
+[0;32mI (79880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (80080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (80280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (80480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (80680) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (80880) ULTRASONIC_METER: Distance: 5.52 cm[0m
+[0;32mI (81080) ULTRASONIC_METER: Distance: 6.40 cm[0m
+[0;32mI (81280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (81480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (81680) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (81880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (82080) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (82280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (82480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (82680) ULTRASONIC_METER: Distance: 5.52 cm[0m
+[0;32mI (82880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (83080) ULTRASONIC_METER: Distance: 6.40 cm[0m
+[0;32mI (83280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (83480) ULTRASONIC_METER: Distance: 6.40 cm[0m
+[0;32mI (83680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (83880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (84080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (84280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (84480) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (84680) ULTRASONIC_METER: Distance: 5.49 cm[0m
+[0;32mI (84880) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (85080) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (85280) ULTRASONIC_METER: Distance: 6.79 cm[0m
+[0;32mI (85480) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (85680) ULTRASONIC_METER: Distance: 5.49 cm[0m
+[0;32mI (85880) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (86080) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (86280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (86480) ULTRASONIC_METER: Distance: 6.36 cm[0m
+[0;32mI (86680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (86880) ULTRASONIC_METER: Distance: 6.40 cm[0m
+[0;32mI (87080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (87280) ULTRASONIC_METER: Distance: 6.40 cm[0m
+[0;32mI (87480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (87680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (87880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (88080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (88280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (88480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (88680) ULTRASONIC_METER: Distance: 6.36 cm[0m
+[0;32mI (88880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (89080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (89280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (89480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (89680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (89880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (90080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (90280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (90480) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (90680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (90880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (91080) ULTRASONIC_METER: Distance: 6.36 cm[0m
+[0;32mI (91280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (91480) ULTRASONIC_METER: Distance: 6.40 cm[0m
+[0;32mI (91680) ULTRASONIC_METER: Distance: 6.40 cm[0m
+[0;32mI (91880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (92080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (92280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (92480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (92680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (92880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (93080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (93280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (93480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (93680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (93880) ULTRASONIC_METER: Distance: 5.95 cm[0m
+[0;32mI (94080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (94280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (94480) ULTRASONIC_METER: Distance: 6.40 cm[0m
+[0;32mI (94680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (94880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (95080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (95280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (95480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (95680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (95880) ULTRASONIC_METER: Distance: 5.51 cm[0m
+[0;32mI (96080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (96280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (96480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (96680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (96880) ULTRASONIC_METER: Distance: 6.40 cm[0m
+[0;32mI (97080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (97280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (97480) ULTRASONIC_METER: Distance: 6.40 cm[0m
+[0;32mI (97680) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (97880) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (98080) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (98280) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (98480) ULTRASONIC_METER: Distance: 6.38 cm[0m
+[0;32mI (98680) ULTRASONIC_METER: Distance: 6.36 cm[0m
+[0;32mI (98880) ULTRASONIC_METER: Distance: 6.38 cm[0m
