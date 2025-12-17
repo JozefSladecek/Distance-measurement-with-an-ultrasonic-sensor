@@ -1,3 +1,14 @@
+/**
+ * @file main.c
+ * @brief Ultrasonic Distance Meter with ESP32
+ * @author Jozef Sládeček (xsladej00)
+ * @date 2025
+ *
+ * This program implements an ultrasonic distance meter using HY-SRF05 sensor
+ * and 4-digit 7-segment LED display with TLC5916 driver.
+ * Features: 3 display modes, brightness control, measurement history, freeze function.
+ */
+
 #include <stdio.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -80,22 +91,27 @@ typedef enum {
 
 // === GLOBAL VARIABLES (SHARED) ===
 
+// Button state flags (set by ISR, processed by button_task)
 static volatile bool mode_change_requested = false;
 static volatile bool brightness_change_requested = false;
 static volatile bool freeze_toggle_requested = false;
 
+// Display settings
 display_mode_t current_mode = MODE_STATIC;
 brightness_level_t current_brightness = BRIGHTNESS_LVL_HIGH;
 
+// Freeze functionality
 bool is_frozen = false;              // is display frozen?
 float frozen_distance = 0.0;
 
+// Measurement history
 #define HISTORY_SIZE 4
 float measurement_history[HISTORY_SIZE] = {0.0, 0.0, 0.0, 0.0};
 int history_view_index = -1;  // -1 = normal view, 0..3 = history view
 
 static volatile float current_distance = 0.0;
 
+// SW4 long/short press detection
 int64_t sw4_press_time = 0;  // long press normal mode
 bool sw4_was_pressed = false;
 
@@ -120,12 +136,20 @@ static void IRAM_ATTR button_sw3_isr_handler(void* arg) {
 
 // === HARDWARE INIT FUNCTIONS ===
 
+/**
+ * @brief Initialize ultrasonic sensor pins
+ */
 void ultrasonic_init(void) {
     gpio_set_direction(TRIG_PIN, GPIO_MODE_OUTPUT);
     gpio_set_level(TRIG_PIN, 0);
     gpio_set_direction(ECHO_PIN, GPIO_MODE_INPUT);
 }
 
+
+/**
+ * @brief Initialize PWM for display brightness control
+ * Note: TLC5916 BLANK pin has inverted logic (HIGH = OFF)
+ */
 void pwm_init(void) {
     // set timer
     ledc_timer_config_t ledc_timer = {
@@ -150,6 +174,9 @@ void pwm_init(void) {
     ledc_channel_config(&ledc_channel);
 }
 
+/**
+ * @brief Initialize 7-segment display pins and PWM
+ */
 void display_init(void) {
     // MOSI as output
     gpio_set_direction(MOSI_PIN, GPIO_MODE_OUTPUT);
@@ -181,9 +208,12 @@ void display_init(void) {
     ESP_LOGI(TAG, "Display initialized");
 }
 
-
+/**
+ * @brief Initialize button pins with interrupts
+ * SW1-SW3 use interrupts, SW4 uses polling for long/short press detection
+ */
 void button_init(void) {
-    // Konfigurácia GPIO
+    // config
     gpio_config_t io_conf = {
         .pin_bit_mask = (1ULL << SW1_PIN) | (1ULL << SW2_PIN) | (1ULL << SW3_PIN) | (1ULL << SW4_PIN),
         .mode = GPIO_MODE_INPUT,
@@ -205,6 +235,11 @@ void button_init(void) {
 }
 
 // === HELPER FUNCTIONS ===
+
+/**
+ * @brief Switch to next display mode (cyclic)
+ * STATIC → ADAPTIVE → INTEGER → STATIC
+ */
 void switch_mode(void) {
     current_mode = (current_mode + 1) % 3;
 
@@ -212,6 +247,10 @@ void switch_mode(void) {
     ESP_LOGI(TAG, "Switched to mode: %s", mode_names[current_mode]);
 }
 
+/**
+ * @brief Save measurement to history (circular buffer)
+ * @param value Distance value in centimeters
+ */
 void save_to_history(float value) {
     // move values one position right
     for (int i = HISTORY_SIZE - 1; i > 0; i--) {
@@ -224,6 +263,10 @@ void save_to_history(float value) {
     ESP_LOGI(TAG, "Saved to history: %.2f cm", value);
 }
 
+/**
+ * @brief Set display brightness level
+ * @param level Brightness level (HIGH/MEDIUM/LOW/MIN)
+ */
 void set_brightness(brightness_level_t level) {
     uint32_t duty;
 
@@ -254,16 +297,28 @@ void set_brightness(brightness_level_t level) {
     current_brightness = level;
 }
 
+/**
+ * @brief Switch to next brightness level (cyclic)
+ */
 void switch_brightness(void) {
     ESP_LOGI(TAG, "switch_brightness() called, current level: %d", current_brightness);
     current_brightness = (current_brightness + 1) % 4;
     set_brightness(current_brightness);
 }
 
+/**
+ * @brief Check if button is currently pressed
+ * @param pin GPIO pin number
+ * @return true if pressed (LOW), false otherwise
+ */
 bool is_button_pressed(gpio_num_t pin) {
     return gpio_get_level(pin) == 0;  // Active LOW
 }
 
+/**
+ * @brief Send one byte to display via SPI
+ * @param byte 8-bit segment pattern
+ */
 void send_byte(uint8_t byte) {
     for (int i = 7; i >= 0; i--) {
         // Set MOSI to bit value
@@ -276,13 +331,20 @@ void send_byte(uint8_t byte) {
     }
 }
 
+/**
+ * @brief Latch data to display output register
+ */
 void latch_data(void) {
     gpio_set_level(XLAT_PIN, 1);
     esp_rom_delay_us(1);
     gpio_set_level(XLAT_PIN, 0);
 }
 
-
+/**
+ * @brief Display one digit with multiplexing
+ * @param segment Digit position (0-3)
+ * @param digit_to_show 8-bit segment pattern
+ */
 void show_digit(int segment, uint8_t digit_to_show) {
     gpio_set_level(DIG1_PIN, 1);
     gpio_set_level(DIG2_PIN, 1);
@@ -299,6 +361,13 @@ void show_digit(int segment, uint8_t digit_to_show) {
     }
 }
 
+/**
+ * @brief Measure distance using ultrasonic sensor HY-SRF05
+ * @return Distance in centimeters, or -1.0 on error/timeout
+ *
+ * Sends 10us trigger pulse, measures ECHO pulse duration.
+ * Uses timeout of 30ms (~5m max distance).
+ */
 float measure_distance(void) {
     // Send 10us trigger pulse
     gpio_set_level(TRIG_PIN, 0);
@@ -332,12 +401,14 @@ float measure_distance(void) {
 }
 
 /**
- * @brief Extract N digits from integer value
- * @param val Integer value to extract digits from
+ * @brief Extract individual digits from integer value
+ * @param val Integer value to extract from
  * @param digits Output array for digit patterns
- * @param patterns Array of digit patterns (0-9)
+ * @param patterns Array of digit patterns (DIGIT_0 to DIGIT_9)
  * @param start_pos Starting position in output array
  * @param count Number of digits to extract
+ *
+ * Example: val=1234, start_pos=0, count=4 → digits[0..3] = patterns[1,2,3,4]
  */
 void extract_digits(int val, uint8_t *digits, const uint8_t *patterns,
                    int start_pos, int count) {
@@ -349,8 +420,14 @@ void extract_digits(int val, uint8_t *digits, const uint8_t *patterns,
 }
 
 /**
- * @brief Display distance on 7-segment display with different modes
+ * @brief Display distance on 7-segment display with selected mode
  * @param distance_cm Distance in centimeters
+ *
+ * Supports three display modes:
+ * - STATIC: Fixed decimal point (XX.X)
+ * - ADAPTIVE: Adjustable decimal point (X.XX / XX.XX / XXX.X / XXXX)
+ * - INTEGER: No decimal point (whole centimeters)
+ * Displays "----" for invalid/out-of-range values.
  */
 void display_distance(float distance_cm) {
     // Digit patterns for 0-9
@@ -458,9 +535,15 @@ void display_distance(float distance_cm) {
     }
 }
 
-// ============================================================
-// TASK 1: DISPLAY TASK
-// ============================================================
+// === TASK FUNCTIONS ===
+
+/**
+ * @brief Display task - continuously refreshes 7-segment display
+ * @param pvParameters Unused
+ *
+ * Displays current/frozen/history value based on state.
+ * Refresh rate: ~125Hz (8ms per full cycle).
+ */
 void display_task(void *pvParameters) {
     ESP_LOGI(TAG, "Display task started");
 
@@ -482,9 +565,13 @@ void display_task(void *pvParameters) {
     }
 }
 
-// ============================================================
-// TASK 2: MEASUREMENT TASK
-// ============================================================
+/**
+ * @brief Measurement task - periodically measures distance
+ * @param pvParameters Unused
+ *
+ * Measures distance every 200ms  and updates current_distance.
+ * Validates measurement range (0-400cm).
+ */
 void measurement_task(void *pvParameters) {
     ESP_LOGI(TAG, "Measurement task started");
 
@@ -514,9 +601,14 @@ void measurement_task(void *pvParameters) {
 
 
 
-// ============================================================
-// ✅ TASK 3: BUTTON HANDLER TASK (Low Priority)
-// ============================================================
+/**
+ * @brief Button task - handles button presses with debouncing
+ * @param pvParameters Unused
+ *
+ * Processes button flags set by ISR handlers.
+ * SW1: Mode change, SW2: Brightness, SW3: Freeze, SW4: History (polling).
+ * Debounce time: 200ms.
+ */
 void button_task(void *pvParameters) {
     ESP_LOGI(TAG, "Button task started");
 
@@ -602,9 +694,10 @@ void button_task(void *pvParameters) {
     }
 }
 
-// ============================================================
-// ✅ MAIN - CREATE TASKS
-// ============================================================
+
+/**
+ * @brief Main function - initializes hardware and creates FreeRTOS tasks
+ */
 void app_main(void) {
     ESP_LOGI(TAG, "=== Ultrasonic Distance Meter (Multi-Task) ===");
     esp_task_wdt_deinit();
@@ -613,12 +706,12 @@ void app_main(void) {
     display_init();
     button_init();
 
-    // Všetky tasky priorita 1 (rovnaká ako main task)
+    // all task has priority 1
     xTaskCreate(display_task, "display", 4096, NULL, 1, NULL);
     xTaskCreate(measurement_task, "measurement", 4096, NULL, 1, NULL);
     xTaskCreate(button_task, "buttons", 4096, NULL, 1, NULL);
 
     ESP_LOGI(TAG, "All tasks created successfully");
 
-    // Main task môže skončiť, ostatné tasky bežia ďalej
+    // Main task can end other task can run
 }
