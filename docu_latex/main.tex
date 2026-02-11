@@ -1,0 +1,244 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[slovak]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[left=2cm, top=3cm, text={17cm, 24cm}]{geometry}
+\usepackage{times}
+\usepackage[unicode]{hyperref}
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\Huge
+\textsc{Vysoké učení technické v Brně} \\ [0.3em]
+\huge
+\textsc{Fakulta informačních technologií} \\
+\vspace{\stretch{0.382}}
+\huge
+IMP Projekt\\[0.2em]
+\LARGE
+Projektová Dokumentácia\\[0.1em]
+\Large
+\textbf{Meranie vzdialenosti ultrazvukovým senzorom}\\
+\vspace{\stretch{0.618}}
+\end{center}
+{\Large 2025 \hfill
+Jozef Sládeček (xsladej00)}
+\end{titlepage}
+
+\clearpage
+\pagenumbering{arabic}
+
+\newpage
+
+\section{Úvod}
+
+Projekt realizuje ultrazvukový merač vzdialenosti na platforme ESP32 s využitím ultrazvukového senzora HY-SRF05 a 4-ciferného 7-segmentového LED displeja. Vytvorený program umožňuje kontinuálne meranie vzdialenosti v rozsahu 0--400~cm a zobrazovanie nameraných hodnôt v reálnom čase. Používateľ môže pomocou tlačidiel ovládať základné funkcie zariadenia.
+
+\section{Použité hardvérové a softvérové prostriedky}
+\subsection{Hardvér}
+\begin{itemize}
+    \item \textbf{Vývojová doska Wemos D1 R32}
+    \begin{itemize}
+        \item Mikrokontrolér ESP32
+    \end{itemize}
+    
+    \item \textbf{Ultrazvukový senzor HY-SRF05}
+    \begin{itemize}
+        \item Merací rozsah: 2--400~cm
+        \item Presnosť: $\pm$3~mm
+        \item Pripojenie: TRIG (GPIO 26), ECHO (GPIO 25)
+    \end{itemize}
+    
+    \item \textbf{4-ciferný 7-segmentový LED displej s obvodom TLC5916}
+    \begin{itemize}
+        \item Ovládanie: SPI rozhranie (MOSI GPIO 23, SCLK GPIO 18)
+        \item Riadenie multiplexovania: GPIO 14, 27, 16, 12
+        \item PWM regulácia jasu: GPIO 13
+    \end{itemize}
+    
+    \item \textbf{Ovládacie tlačidlá SW1--SW4}
+    \begin{itemize}
+        \item SW1 (GPIO 4): Prepínanie režimu zobrazenia
+        \item SW2 (GPIO 5): Nastavenie jasu displeja
+        \item SW3 (GPIO 33): Zmrazenie/odmrazenie hodnoty
+        \item SW4 (GPIO 32): Správa histórie meraní
+    \end{itemize}
+\end{itemize}
+\subsection{Softvér}
+\begin{itemize}
+    \item \textbf{ESP-IDF v6.1}: Vývojový framework
+    \item \textbf{FreeRTOS}: RTOS (Real-Time Operating System)
+    \begin{itemize}
+        \item 3 paralelné tasky (Display, Measurement, Button)
+        \item Všetky s prioritou 1
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Kompilácia a nahratie programu}
+Aktivácia ESP-IDF prostredia:
+\begin{verbatim}
+. ~/esp/esp-idf/export.sh
+\end{verbatim}
+
+Kompilácia, nahratie a spustenie monitora:
+\begin{verbatim}
+idf.py -p /dev/ttyUSB0 flash monitor
+\end{verbatim}
+
+\section{Návrh a realizácia riešenia}
+
+\subsection{Architektúra systému}
+Program je navrhnutý ako multitaskový systém s využitím FreeRTOS. Systém je rozdelený na tri nezávislé tasky:
+
+\begin{itemize}
+    \item \textbf{Display Task (priorita 1)}: Kontinuálne zobrazovanie aktuálnej hodnoty vzdialenosti na 4-cifernom displeji pomocou multiplexovania. Frekvencia obnovovania je približne 125~Hz (8~ms na kompletný cyklus 4 číslic).
+    
+    \item \textbf{Measurement Task (priorita 1)}: Periodické meranie vzdialenosti ultrazvukovým senzorom s intervalem 200~ms (5~Hz). Nameraná hodnota sa ukladá do zdieľanej premennej \texttt{current\_distance}.
+    
+    \item \textbf{Button Task (priorita 1)}: Obsluha tlačidiel s debouncing mechanizmom (200~ms). Spracováva prerušenia od tlačidiel SW1--SW3 a polling tlačidla SW4 pre detekciu krátkych/dlhých stlačení.
+\end{itemize}
+
+Tasky zdieľajú dáta prostredníctvom globálnych premenných označených ako \texttt{volatile}. Funkcia \texttt{app\_main()} inicializuje všetky komponenty a vytvára tasky pomocou \texttt{xTaskCreate()}. Po vytvorení taskov FreeRTOS scheduler prevezme kontrolu.
+
+\subsection{Princíp merania vzdialenosti}
+Ultrazvukový senzor HY-SRF05 využíva metódu meraného odrazu ultrazvukových vĺn:
+
+\begin{enumerate}
+    \item Mikrokontrolér vyšle na pin TRIG 10~$\mu$s impulz
+    \item Senzor vyšle 8 ultrazvukových impulzov (40~kHz)
+    \item Pin ECHO prejde do stavu HIGH
+    \item Po prijatí odrazeného signálu prejde ECHO do stavu LOW
+    \item Vzdialenost sa vypočíta podľa vzorca:
+    \[
+    d = \frac{t \cdot v}{2}
+    \]
+    kde $t$ je čas pulzu v $\mu$s, $v = 0.0343$~cm/$\mu$s (rýchlosť zvuku), delenie 2 kompenzuje cestu tam aj späť
+\end{enumerate}
+
+Funkcia \texttt{measure\_distance()} implementuje merací cyklus s timeout mechanizmom. Čas šírky ECHO pulzu sa meria pomocou \texttt{esp\_timer\_get\_time()}, ktorá poskytuje mikrosekundovú presnosť. Pre zabránenie nekonečného čakania je implementovaný timeout 30~ms (zodpovedá max. vzdialenosti ~5~m). Pri chybnom meraní alebo prekročení rozsahu funkcia vráti hodnotu -1, čo sa zobrazí ako \texttt{----}.
+
+\subsection{Ovládanie displeja}
+4-ciferný 7-segmentový displej je ovládaný pomocou multiplexovania a sériového prenosu dát:
+
+\begin{itemize}
+    \item \textbf{Prenos dát}: Segment pattern (8-bitová hodnota definujúca stav jednotlivých segmentov) sa prenáša bit po bite pomocou MOSI a SCLK pinov. Funkcia \texttt{send\_byte()} iteruje cez 8 bitov a generuje clock impulzy. Po prenesení celého bajtu sa dáta latchujú signálom XLAT pomocou funkcie \texttt{latch\_data()}
+    
+    \item \textbf{Multiplexovanie}: Každá číslica je aktívna 2~ms, potom sa prepne na nasledujúcu. Celý cyklus trvá 8~ms (125~Hz), čo eliminuje blikanie displeja. Funkcia \texttt{show\_digit()} vypne všetky cifry, prenesie segment pattern a aktivuje príslušnú číslicu
+    
+    \item \textbf{Segment patterns}: Pre každú cifru 0--9 je definovaný 8-bitový pattern (\texttt{DIGIT\_0} až \texttt{DIGIT\_9}), kde každý bit reprezentuje jeden segment
+    
+    \item \textbf{Implementácia režimov zobrazenia}: Funkcia \texttt{display\_distance()} implementuje tri režimy (STATIC/ADAPTIVE/INTEGER). Hodnota sa vynásobí faktorom 10 alebo 100, rozdelí na cifry pomocou \texttt{extract\_digits()} a desatinná bodka sa pridá na príslušnú pozíciu. Detailný popis jednotlivých režimov je v sekcii 4.2
+    
+    \item \textbf{PWM regulácia jasu}: Pin BLANK je riadený PWM signálom pomocou LEDC drivera. Jas je regulovaný pomocou duty cycle (invertovaná logika):
+    \begin{itemize}
+        \item HIGH: 0\% duty → 100\% jas
+        \item MEDIUM: 50\% duty → 50\% jas
+        \item LOW: 78\% duty → 22\% jas
+        \item MIN: 90\% duty → 10\% jas
+    \end{itemize}
+\end{itemize}
+\subsection{Obsluha tlačidiel}
+Tlačidlá sú obsluhované kombináciou prerušení (ISR) a pollingu:
+
+\begin{itemize}
+    \item \textbf{SW1, SW2, SW3}: Využívajú GPIO prerušenia (NEGEDGE). ISR handler iba nastaví príslušný flag, samotné spracovanie prebieha v Button Task, ktorý kontroluje flagy každých 20~ms a implementuje debouncing 200~ms
+    
+    \item \textbf{SW4}: Používa polling s detekciou trvania stlačenia. Pri stlačení sa zaznamená čas pomocou \texttt{esp\_timer\_get\_time()}, pri uvolnení sa vyhodnotí trvanie (hranica 1~s pre rozlíšenie krátkého a dlhého stlačenia)
+\end{itemize}
+
+História meraní je implementovaná ako kruhový buffer s kapacitou 4 hodnoty (pole \texttt{measurement\_history[4]}). Pri zmrazení aktuálnej hodnoty (SW3) sa táto automaticky uloží pomocou funkcie \texttt{save\_to\_history()}, ktorá posunie staršie hodnoty a vloží novú na začiatok bufferu.
+
+
+\section{Funkčnosť}
+
+Táto sekcia popisuje ovládanie zariadenia z pohľadu používateľa.
+
+\subsection{Ovládacie tlačidlá}
+
+\begin{itemize}
+    \item \textbf{SW1}: Prepínanie režimu zobrazenia
+    \begin{itemize}
+        \item Statický režim -- desatinná bodka vždy na rovnakom mieste
+        \item Adaptívny režim -- automatické prispôsobenie formátu pre maximálne využitie displeja
+        \item Celočíselný režim -- zobrazenie bez desatinnej bodky
+    \end{itemize}
+    
+    \item \textbf{SW2}: Nastavenie jasu displeja (4 úrovne cyklicky: HIGH → MEDIUM → LOW → MIN → HIGH)
+    
+    \item \textbf{SW3}: Zmrazenie/odmrazenie aktuálnej hodnoty
+    \begin{itemize}
+        \item Pri zmrazení sa hodnota uloží do histórie
+        \item Meranie pokračuje na pozadí
+        \item Opätovným stlačením sa obnoví živé zobrazenie
+    \end{itemize}
+    
+    \item \textbf{SW4}: Práca s históriou meraní
+    \begin{itemize}
+        \item Dlhé stlačenie ($>1$ s): Vstup/výstup z režimu prehliadania histórie
+        \item Krátke stlačenie ($<1$ s): Listovanie medzi uloženými meraniami (iba v režime histórie)
+    \end{itemize}
+\end{itemize}
+
+\subsection{Režimy zobrazenia vzdialenosti}
+
+\subsubsection{Statický režim}
+Desatinná bodka je vždy na druhej pozícii zľava. Príklady zobrazení:
+\begin{itemize}
+    \item Pre 5.3 cm → displej ukáže \texttt{~~5.3}
+    \item Pre 25.7 cm → displej ukáže \texttt{~25.7}
+    \item Pre 123.4 cm → displej ukáže \texttt{123.4}
+\end{itemize}
+
+\subsubsection{Adaptívny režim}
+Formát sa automaticky prispôsobuje rozsahu hodnoty pre zobrazenie maximálneho počtu platných cifier:
+\begin{itemize}
+    \item Pre 5.34 cm → displej ukáže \texttt{~5.34} (dve desatinné miesta)
+    \item Pre 25.67 cm → displej ukáže \texttt{25.67} (dve desatinné miesta)
+    \item Pre 123.4 cm → displej ukáže \texttt{123.4} (jedno desatinné miesto)
+    \item Pre 1234 cm → displej ukáže \texttt{1234} (bez desatinnej bodky)
+\end{itemize}
+
+\subsubsection{Celočíselný režim}
+Zobrazujú sa len celé centimetre bez desatinnej bodky:
+\begin{itemize}
+    \item Pre 5.7 cm → displej ukáže \texttt{~~~5}
+    \item Pre 25.3 cm → displej ukáže \texttt{~~25}
+    \item Pre 123.8 cm → displej ukáže \texttt{~123}
+\end{itemize}
+
+\subsection{História meraní}
+
+Zariadenie automaticky ukladá posledné 4 zmrazené merania. História funguje ako kruhový buffer -- pri uložení piatej hodnoty sa prepíše najstaršia.
+
+\textbf{Postup práce s históriou:}
+\begin{enumerate}
+    \item Zmrazte hodnotu tlačidlom SW3 (automaticky sa uloží)
+    \item Dlhým stlačením SW4 ($>1$ s) vstúpte do režimu histórie
+    \item Krátkym stlačením SW4 listujte medzi uloženými hodnotami
+    \item Dlhým stlačením SW4 ($>1$ s) sa vráťte do normálneho režimu
+\end{enumerate}
+
+V režime histórie nie je možné zmrazovať nové hodnoty (SW3 je neaktívne).
+
+\subsection{Indikácia chybových stavov}
+
+Pri chybnom meraní sa na displeji zobrazí \texttt{----}. Tento stav indikuje:
+\begin{itemize}
+    \item Objekt je mimo rozsahu senzora ($< 2$ cm alebo $> 400$ cm)
+    \item Nedostatočný odraz od povrchu (príliš hladký alebo mäkký materiál)
+    \item Timeout -- senzor nezachytil odrazenú vlnu do 30 ms
+\end{itemize}
+
+
+\section{Záver}
+
+Projekt bol úspešne implementovaný do finálneho stavu. Program realizuje ultrazvukový merač vzdialenosti s kontinuálnym meraním, zobrazovaním na 4-cifernom displeji a ovládaním pomocou tlačidiel. Všetky požiadavky zadania boli splnené.
+
+Funkčnosť zariadenia bola overená praktickým testovaním -- porovnaním nameraných hodnôt s referenčnými vzdialenosťami meranými pravítkom. Zariadenie meria konzistentne v pracovnom rozsahu senzora. Prevádzka systému a všetky implementované funkcie sú dokumentované v priloženom demonštračnom videu\footnote{\url{https://drive.google.com/file/d/1zJ1TuUQlUMzdUARkRMVFFidXT5KiZ0wT/view?usp=sharing}}.
+
+Implementovaný multitaskový systém s využitím FreeRTOS zabezpečuje oddelenie jednotlivých častí programu -- displej, meranie a obsluha tlačidiel bežia paralelne v samostatných taskoch.
+
+
+\end{document}
